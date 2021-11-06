@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Projectiles/Missile.tscn" type="PackedScene" id=7]
 [ext_resource path="res://WorkingPauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mechs/KillerDutchMech.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Font/PixelFJVerdana12pt.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2

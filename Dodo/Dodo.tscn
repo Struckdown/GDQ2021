@@ -99,13 +99,16 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[node name="Dodo" type="KinematicBody2D"]
+[node name="Dodo" type="KinematicBody2D" groups=[
+"canBeHitByMissiles",
+"missileTrackable",
+]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 hframes = 4
-frame = 1
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

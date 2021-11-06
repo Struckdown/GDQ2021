@@ -1,12 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/Controls.png" type="Texture" id=2]
+[ext_resource path="res://UI/back.png" type="Texture" id=3]
+[ext_resource path="res://UI/back_clicked.png" type="Texture" id=4]
+[ext_resource path="res://UI/back_hover.png" type="Texture" id=5]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 160, 20 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 160, 20 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 160, 20 )
 
 [node name="MainMenu" type="Control"]
 margin_right = 1024.0
 margin_bottom = 600.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Change to background image" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,8 +66,10 @@ margin_bottom = 100.0
 text = "QUIT"
 
 [node name="ControlRect" type="TextureRect" parent="."]
-margin_right = 1024.0
-margin_bottom = 550.0
+margin_left = 81.0
+margin_top = 12.6908
+margin_right = 942.0
+margin_bottom = 475.691
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
@@ -54,9 +81,12 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -20.0
-margin_bottom = 47.0
-text = "BACK"
+margin_top = 2.09106
+margin_bottom = 114.091
+theme = SubResource( 1 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

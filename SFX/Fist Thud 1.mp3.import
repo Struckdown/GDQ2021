@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Fist Thud 1.mp3-f13327a795031a9ad1416f782a88d92f.mp3str"
+
+[deps]
+
+source_file="res://SFX/Fist Thud 1.mp3"
+dest_files=[ "res://.import/Fist Thud 1.mp3-f13327a795031a9ad1416f782a88d92f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

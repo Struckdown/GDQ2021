@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Mechs/KillerDutchMech.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.124, 31.8441 )
+
+[node name="KillerDutchMech" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Body" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, 495.637 )
+scale = Vector2( 6.83722, 11.0738 )
+texture = ExtResource( 1 )
+
+[node name="ArmL" type="Sprite" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -337.861, 324.392 )
+scale = Vector2( 6.49136, 2.77848 )
+texture = ExtResource( 1 )
+
+[node name="MissileLauncher" type="Sprite" parent="ArmL"]
+self_modulate = Color( 0.729412, 0.0588235, 0.0588235, 1 )
+position = Vector2( -28.5312, 0 )
+scale = Vector2( 0.355195, 1.39008 )
+texture = ExtResource( 1 )
+
+[node name="ArmR" type="Sprite" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 337.861, 324.392 )
+scale = Vector2( 6.49136, 2.77848 )
+texture = ExtResource( 1 )
+
+[node name="MissileLauncher" type="Sprite" parent="ArmR"]
+self_modulate = Color( 0.729412, 0.0588235, 0.0588235, 1 )
+position = Vector2( 28.531, 0 )
+scale = Vector2( 0.355195, 1.39008 )
+texture = ExtResource( 1 )
+
+[node name="Head" type="Sprite" parent="."]
+scale = Vector2( 5.99525, 5.99525 )
+texture = ExtResource( 1 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Head" groups=[
+"canBeHitByMissiles",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/KinematicBody2D"]
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )
+
+[node name="LegL" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -119.654, 1007.96 )
+rotation = 0.00406656
+scale = Vector2( 3.04526, -6.10776 )
+texture = ExtResource( 1 )
+
+[node name="Foot" type="Sprite" parent="LegL"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -20.1645, -38.4595 )
+scale = Vector2( 1.42027, 0.440914 )
+texture = ExtResource( 1 )
+
+[node name="LegL2" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 119.654, 1007.96 )
+rotation = 0.00406656
+scale = Vector2( 3.04526, -6.10776 )
+texture = ExtResource( 1 )
+
+[node name="Foot" type="Sprite" parent="LegL2"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 20.164, -38.46 )
+scale = Vector2( 1.42027, 0.440914 )
+texture = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="MissileLauncherTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="MissileLauncherTimer" to="." method="_on_MissileLauncherTimer_timeout"]

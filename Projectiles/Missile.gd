@@ -27,8 +27,14 @@ func move(delta):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("canBeHitByMissiles"):
-		body.takeDamage()
-		explode()
+		if body.has_method("takeDamage"):
+			body.takeDamage()
+			explode()
+		else:
+			var o = body.owner
+			if o.has_method("takeDamage"):
+				o.takeDamage()
+				explode()
 
 
 func _on_Lifetime_timeout():
@@ -40,7 +46,7 @@ func explode():
 		$AudioStreamPlayer.play()
 		$ExplosionTimer.start()
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
-		$icon.hide()
+		$Sprite.hide()
 
 
 func _on_ExplosionTimer_timeout():

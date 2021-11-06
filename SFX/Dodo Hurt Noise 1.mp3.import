@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dodo Hurt Noise 1.mp3-e16df32f885840cf8ff7a9c89eebcc06.mp3str"
+
+[deps]
+
+source_file="res://SFX/Dodo Hurt Noise 1.mp3"
+dest_files=[ "res://.import/Dodo Hurt Noise 1.mp3-e16df32f885840cf8ff7a9c89eebcc06.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

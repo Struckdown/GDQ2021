@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Bird Noise 2.mp3-f67e2e661934a6fae5765e5ea4b2d401.mp
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

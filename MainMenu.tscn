@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://UI/Controls.png" type="Texture" id=2]
+[ext_resource path="res://UI/controls.png" type="Texture" id=2]
 [ext_resource path="res://UI/back.png" type="Texture" id=3]
 [ext_resource path="res://UI/back_clicked.png" type="Texture" id=4]
 [ext_resource path="res://UI/back_hover.png" type="Texture" id=5]
@@ -111,7 +111,6 @@ __meta__ = {
 }
 
 [node name="ControllerConatiner" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.145098, 0.145098, 0.145098, 1 )

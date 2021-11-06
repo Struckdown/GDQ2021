@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Font/PixelFJVerdana12pt.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://UI/GameOver.gd" type="Script" id=2]
 [ext_resource path="res://SFX/Oof 1.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Font/times-new-roman.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 1 )
+size = 48
+font_data = ExtResource( 4 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "display"
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -16,7 +19,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -28,29 +31,97 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 1 ),
+"times": PoolRealArray( 1.6, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("../BackGround:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 1, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../BackGround:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 2 )
+}
 
-[node name="GameOver" type="CenterContainer"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
+[node name="GameOver" type="Control"]
+margin_right = 1023.0
+margin_bottom = 600.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameOverLbl" type="Label" parent="."]
-margin_right = 148.0
-margin_bottom = 36.0
+[node name="BackGround" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 0.666667 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -77.0
+margin_top = -61.0
+margin_right = 65.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.003
+anchor_bottom = 1.003
+margin_right = -0.0689697
+margin_bottom = 0.200012
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverLbl" type="Label" parent="CenterContainer"]
+margin_left = 397.0
+margin_top = 274.0
+margin_right = 629.0
+margin_bottom = 328.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "YOU DIED"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
 anims/display = SubResource( 2 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CenterContainer"]
 stream = ExtResource( 3 )

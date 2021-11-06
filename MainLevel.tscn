@@ -1,22 +1,21 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environment/Terrain.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mechs/BossHp.tscn" type="PackedScene" id=4]
 [ext_resource path="res://BGM/GDQ - 2021 - BGM Phase 1 - Intro.mp3" type="AudioStream" id=5]
 [ext_resource path="res://MainLevel.gd" type="Script" id=6]
-[ext_resource path="res://Projectiles/Missile.tscn" type="PackedScene" id=7]
 [ext_resource path="res://WorkingPauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mechs/KillerDutchMech.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Font/PixelFJVerdana12pt.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Timer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UI/GameOver.tscn" type="PackedScene" id=11]
 [ext_resource path="res://art/spr_sky.png" type="Texture" id=12]
 [ext_resource path="res://art/spr_mountains.png" type="Texture" id=13]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
-emission_box_extents = Vector3( 600, 1, 1 )
+emission_box_extents = Vector3( 900, 200, 1 )
 flag_disable_z = true
 direction = Vector3( 0.1, 1, 0 )
 spread = 15.0
@@ -27,12 +26,6 @@ orbit_velocity_random = 0.0
 scale = 2.0
 scale_random = 1.0
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 300.921, 71.2753 )
-
-[sub_resource type="DynamicFont" id=3]
-font_data = ExtResource( 10 )
-
 [node name="MainLevel2" type="Node2D"]
 script = ExtResource( 6 )
 
@@ -40,6 +33,7 @@ script = ExtResource( 6 )
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
+healthRef = NodePath("../CanvasLayer/Health")
 
 [node name="Camera2D" type="Camera2D" parent="Dodo"]
 current = true
@@ -49,48 +43,24 @@ smoothing_enabled = true
 [node name="Particles2D" type="Particles2D" parent="Dodo/Camera2D"]
 position = Vector2( -33.6646, -477.111 )
 z_index = 1
-amount = 20
-lifetime = 3.0
+amount = 120
+lifetime = 7.0
 preprocess = 2.0
 visibility_rect = Rect2( -2000, -2000, 4000, 4000 )
 local_coords = false
 process_material = SubResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 81.567, 183.315 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 2 )
-
-[node name="Sprite" type="Sprite" parent="StaticBody2D"]
-position = Vector2( 1.17982, 0.943907 )
-scale = Vector2( 9.41375, 2.29783 )
-texture = ExtResource( 2 )
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -250.0
-margin_top = 100.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 3 )
-text = "Timer: "
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BossHp" parent="CanvasLayer" instance=ExtResource( 4 )]
 margin_top = 556.163
 margin_bottom = 596.163
+mouse_filter = 2
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource( 8 )]
 
-[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 11 )]
-margin_right = 1024.0
-margin_bottom = 600.0
+[node name="Timer" parent="CanvasLayer" instance=ExtResource( 10 )]
+mouse_filter = 2
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
@@ -114,14 +84,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+[node name="Health" parent="CanvasLayer" instance=ExtResource( 2 )]
+margin_left = 0.0
+margin_top = -600.0
+margin_right = 152.0
+margin_bottom = -570.0
+mouse_filter = 2
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 11 )]
+margin_right = 1024.0
+mouse_filter = 2
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
-
-[node name="Missile" parent="." instance=ExtResource( 7 )]
-position = Vector2( 846.164, 71.1846 )
 
 [node name="KillerDutchMech" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1132.71, -366.651 )

@@ -1,13 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Mechs/KillerDutchMech.gd" type="Script" id=2]
+[ext_resource path="res://SFX/Angry Robot 1.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.124, 31.8441 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "invulnerable"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true ]
+}
+
 [node name="KillerDutchMech" type="Node2D"]
 script = ExtResource( 2 )
+missileLaunchers = [ NodePath("ArmL/MissileLauncher"), NodePath("ArmR/MissileLauncher") ]
 
 [node name="Body" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
@@ -82,4 +99,13 @@ texture = ExtResource( 1 )
 wait_time = 5.0
 autostart = true
 
+[node name="InvulnerableAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/invulnerable = SubResource( 2 )
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 5.0
+attenuation = 0.378929
+
 [connection signal="timeout" from="MissileLauncherTimer" to="." method="_on_MissileLauncherTimer_timeout"]
+[connection signal="animation_finished" from="InvulnerableAnimationPlayer" to="." method="_on_InvulnerableAnimationPlayer_animation_finished"]

@@ -1,10 +1,6 @@
-extends CenterContainer
+extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var played = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,5 +12,6 @@ func _ready():
 #	pass
 
 func startGameOver():
-	$AnimationPlayer.play("display")
-	$AudioStreamPlayer.play()
+	if not played:
+		played = true
+		$CenterContainer/AnimationPlayer.play("display")

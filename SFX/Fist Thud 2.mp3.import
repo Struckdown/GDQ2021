@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Fist Thud 2.mp3-674c95fe93309ad7190b6aed8415a3b6.mp3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

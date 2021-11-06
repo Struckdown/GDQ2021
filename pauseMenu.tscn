@@ -19,13 +19,13 @@ region_rect = Rect2( 0, 0, 37, 19 )
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 37, 19 )
 
-[sub_resource type="DynamicFontData" id=9]
+[sub_resource type="DynamicFontData" id=11]
 
 [sub_resource type="DynamicFont" id=10]
 extra_spacing_top = 24
 extra_spacing_bottom = 24
 font_data = ExtResource( 7 )
-fallback/0 = SubResource( 9 )
+fallback/0 = SubResource( 11 )
 
 [node name="Pause Menu" type="Control"]
 pause_mode = 2
@@ -95,7 +95,7 @@ __meta__ = {
 }
 
 [node name="quit" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 110.0
+margin_top = 88.0
 margin_right = 170.0
 margin_bottom = 172.0
 grow_horizontal = 2

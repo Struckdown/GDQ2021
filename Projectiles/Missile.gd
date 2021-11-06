@@ -3,7 +3,7 @@ extends Node2D
 export(float) var speed = 300
 export(float) var turnRate = 3
 var target
-
+var dying = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,4 +35,13 @@ func _on_Lifetime_timeout():
 	explode()
 
 func explode():
-	queue_free()	# placeholder till we have explosions
+	if not dying:
+		dying = true
+		$AudioStreamPlayer.play()
+		$ExplosionTimer.start()
+		$Area2D/CollisionShape2D.set_deferred("disabled", true)
+		$icon.hide()
+
+
+func _on_ExplosionTimer_timeout():
+	queue_free()

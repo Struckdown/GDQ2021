@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Grunt 2.mp3-cc28994a5b562270717347a32018e337.mp3str"
+
+[deps]
+
+source_file="res://SFX/Grunt 2.mp3"
+dest_files=[ "res://.import/Grunt 2.mp3-cc28994a5b562270717347a32018e337.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -3,14 +3,14 @@ extends KinematicBody2D
 
 export(float) var speed = 600
 export(float) var maxSpeed = 900
-var dragFactor = 0.1
 var heldDirections = Vector2(0,0)	# x,y (x is left/right)
 var velocity = Vector2(0,0)
-var gravity = 9.81
+export(float) var gravity = 30
 var dashRequested = false
 var dashTimeLeft = 0
-var dashTimeCap = 0.2	# seconds
-var dashSpeed = 800
+export(float) var dashTimeCap = 0.25	# seconds
+export(float) var dashSpeed = 900
+export(float) var jumpStrength = 750
 var wasDashing = false
 var facingRight = 1	# either 1 or -1
 var anim
@@ -21,7 +21,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	determineInputs()
 	applyMovement(delta)
 
@@ -46,7 +46,7 @@ func applyMovement(delta):
 	if dashRequested:
 		if heldDirections[0] == 0 and heldDirections[1] == 0:
 			heldDirections[0] = facingRight
-		velocity = heldDirections * dashSpeed * delta
+		velocity = heldDirections * dashSpeed
 		dashTimeLeft = dashTimeCap
 		wasDashing = true
 	if dashTimeLeft > 0:
@@ -55,12 +55,11 @@ func applyMovement(delta):
 		if wasDashing:
 			wasDashing = false
 			velocity[1] = max(-3, velocity[1])
-		velocity[0] = clamp(heldDirections[0]*speed*delta, -maxSpeed, maxSpeed)
-		velocity[1] = clamp(velocity[1] + gravity*delta, -100, 200)
-		if is_on_floor():
-			velocity[1] = clamp(velocity[1], -100, 0)
-	move_and_slide(velocity*50, Vector2(0, -1))
+		velocity[0] = clamp(heldDirections[0]*speed, -maxSpeed, maxSpeed)
+		velocity[1] = clamp(velocity[1] + gravity, -1000, 2000)
+	move_and_slide(velocity, Vector2(0, -1))
 	dashTimeLeft -= delta
+
 
 func updateAnim(newAnim):
 	if newAnim == anim:
@@ -71,7 +70,7 @@ func updateAnim(newAnim):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("jump") and is_on_floor():
-		velocity[1] -= 9
+		velocity[1] = -jumpStrength
 
 func takeDamage():
 	print("Dodo was hit!")

@@ -19,7 +19,7 @@ func _input(event):
 		$ControllerConatiner.hide()
 
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://MainLevel.tscn")
+	SceneTransition.transitionTo("res://MainLevel.tscn")
 
 func _on_QuitButton_pressed():
 	get_tree().quit()

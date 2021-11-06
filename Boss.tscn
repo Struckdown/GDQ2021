@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://pauseMenu.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 300.921, 71.2753 )
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="Dodo" parent="." instance=ExtResource( 1 )]
+
+[node name="Camera2D" type="Camera2D" parent="Dodo"]
+position = Vector2( 411.466, 187.895 )
+current = true
+limit_left = -100
+limit_top = -400
+limit_right = 1000
+limit_bottom = 400
+limit_smoothed = true
+smoothing_enabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 81.567, 183.315 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 1.17982, 0.943907 )
+scale = Vector2( 9.41375, 2.29783 )
+texture = ExtResource( 2 )
+
+[node name="Pause" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="Pause" instance=ExtResource( 3 )]
+visible = false

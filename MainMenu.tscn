@@ -10,34 +10,34 @@
 [ext_resource path="res://UI/controls_clicked.png" type="Texture" id=8]
 [ext_resource path="res://Font/PixelFJVerdana12pt.ttf" type="DynamicFontData" id=9]
 
-[sub_resource type="StyleBoxTexture" id=5]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 37, 19 )
 
-[sub_resource type="StyleBoxTexture" id=6]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 37, 19 )
 
-[sub_resource type="StyleBoxTexture" id=7]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 37, 19 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=4]
 extra_spacing_top = 30
 extra_spacing_bottom = 29
 font_data = ExtResource( 9 )
 
-[sub_resource type="Theme" id=1]
+[sub_resource type="Theme" id=5]
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 160, 20 )
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 160, 20 )
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 160, 20 )
 
@@ -73,10 +73,10 @@ __meta__ = {
 margin_right = 193.0
 margin_bottom = 95.0
 grow_horizontal = 2
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/normal = SubResource( 7 )
-custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -87,10 +87,10 @@ margin_top = 99.0
 margin_right = 193.0
 margin_bottom = 194.0
 grow_horizontal = 2
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/normal = SubResource( 7 )
-custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Controls"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -101,10 +101,10 @@ margin_top = 198.0
 margin_right = 193.0
 margin_bottom = 293.0
 grow_horizontal = 2
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/normal = SubResource( 7 )
-custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -129,10 +129,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 2.09106
 margin_bottom = 114.091
-theme = SubResource( 1 )
-custom_styles/hover = SubResource( 3 )
-custom_styles/pressed = SubResource( 4 )
-custom_styles/normal = SubResource( 2 )
+theme = SubResource( 5 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

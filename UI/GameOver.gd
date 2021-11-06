@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Control
 
 var played = false
 
@@ -14,5 +14,4 @@ func _ready():
 func startGameOver():
 	if not played:
 		played = true
-		$AnimationPlayer.play("display")
-		$AudioStreamPlayer.play()
+		$CenterContainer/AnimationPlayer.play("display")

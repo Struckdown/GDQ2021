@@ -11,7 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _input(event):
-	if event.is_action_pressed("Pause"):
+	if event.is_action_pressed("pause"):
 		var is_paused = not get_tree().paused
 		get_tree().paused = is_paused
 		visible = is_paused

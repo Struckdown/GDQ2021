@@ -15,7 +15,7 @@
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
-emission_box_extents = Vector3( 600, 1, 1 )
+emission_box_extents = Vector3( 900, 200, 1 )
 flag_disable_z = true
 direction = Vector3( 0.1, 1, 0 )
 spread = 15.0
@@ -43,8 +43,8 @@ smoothing_enabled = true
 [node name="Particles2D" type="Particles2D" parent="Dodo/Camera2D"]
 position = Vector2( -33.6646, -477.111 )
 z_index = 1
-amount = 20
-lifetime = 3.0
+amount = 120
+lifetime = 7.0
 preprocess = 2.0
 visibility_rect = Rect2( -2000, -2000, 4000, 4000 )
 local_coords = false

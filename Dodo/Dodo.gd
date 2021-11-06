@@ -20,6 +20,7 @@ export(float) var coyoteTime = 0.15	# how much time can still jump while not on 
 var health = 3
 export(NodePath) onready var healthRef = get_node(healthRef)
 signal died
+var playerHasControl = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,6 +33,10 @@ func _physics_process(delta):
 	applyMovement(delta)
 
 func determineInputs():
+	if not playerHasControl:
+		heldDirections = Vector2.ZERO
+		dashRequested = false
+		return
 	heldDirections[0] = (-1 * int(Input.is_action_pressed("left"))) + int(Input.is_action_pressed("right"))
 	heldDirections[1] = (-1 * int(Input.is_action_pressed("up"))) + int(Input.is_action_pressed("down"))
 	dashRequested = Input.is_action_just_pressed("dash")
@@ -83,7 +88,7 @@ func updateAnim(newAnim):
 	
 
 func _unhandled_input(event):
-	if event.is_action_pressed("jump") and timeSinceLastOnFloor < coyoteTime:
+	if event.is_action_pressed("jump") and timeSinceLastOnFloor < coyoteTime and playerHasControl:
 		velocity[1] = -jumpStrength
 
 func takeDamage():
@@ -92,6 +97,6 @@ func takeDamage():
 	if healthRef:
 		healthRef.hit()
 	if health <= 0:
+		playerHasControl = false
 		emit_signal("died")
-		queue_free()
 		

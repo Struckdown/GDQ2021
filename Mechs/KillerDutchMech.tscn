@@ -8,6 +8,7 @@ extents = Vector2( 32.124, 31.8441 )
 
 [node name="KillerDutchMech" type="Node2D"]
 script = ExtResource( 2 )
+missileLaunchers = [ NodePath("ArmL/MissileLauncher"), NodePath("ArmR/MissileLauncher") ]
 
 [node name="Body" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )

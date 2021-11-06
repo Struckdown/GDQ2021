@@ -24,6 +24,8 @@ extents = Vector2( 300.921, 71.2753 )
 [node name="MainLevel2" type="Node2D"]
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 2, 2 )
+gravity = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="Dodo"]
 current = true

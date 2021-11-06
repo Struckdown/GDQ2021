@@ -9,4 +9,3 @@ export_presets.cfg
 .mono/
 data_*/
 *.ai
-*.import

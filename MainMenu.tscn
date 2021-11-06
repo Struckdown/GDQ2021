@@ -110,8 +110,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ControlRect" type="TextureRect" parent="."]
+[node name="ControllerConatiner" type="ColorRect" parent="."]
 visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ControlRect" type="TextureRect" parent="ControllerConatiner"]
 margin_left = 81.0
 margin_top = 12.6908
 margin_right = 942.0
@@ -123,7 +131,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" type="Button" parent="ControlRect"]
+[node name="BackButton" type="Button" parent="ControllerConatiner/ControlRect"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -140,4 +148,4 @@ __meta__ = {
 [connection signal="pressed" from="MenuButtons/Play" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MenuButtons/Controls" to="." method="_on_ControlsButton_pressed"]
 [connection signal="pressed" from="MenuButtons/Quit" to="." method="_on_QuitButton_pressed"]
-[connection signal="pressed" from="ControlRect/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="ControllerConatiner/ControlRect/BackButton" to="." method="_on_BackButton_pressed"]

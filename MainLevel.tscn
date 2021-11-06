@@ -30,7 +30,6 @@ script = ExtResource( 6 )
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
-gravity = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="Dodo"]
 current = true

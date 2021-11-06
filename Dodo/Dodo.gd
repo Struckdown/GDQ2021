@@ -14,6 +14,9 @@ export(float) var jumpStrength = 750
 var wasDashing = false
 var facingRight = 1	# either 1 or -1
 var anim
+var onFloor = false
+var timeSinceLastOnFloor = 0
+export(float) var coyoteTime = 0.15	# how much time can still jump while not on floor since last on floor
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -58,7 +61,14 @@ func applyMovement(delta):
 			velocity[1] = max(-3, velocity[1])
 		velocity[0] = clamp(heldDirections[0]*speed, -maxSpeed, maxSpeed)
 		velocity[1] = clamp(velocity[1] + gravity, -1000, 2000)
+		if onFloor:
+			velocity[1] = clamp(velocity[1], -1000, 1)
 	move_and_slide(velocity, Vector2(0, -1))
+	onFloor = is_on_floor()
+	if onFloor:
+		timeSinceLastOnFloor = 0
+	else:
+		timeSinceLastOnFloor += delta
 	dashTimeLeft -= delta
 
 
@@ -70,7 +80,7 @@ func updateAnim(newAnim):
 	
 
 func _unhandled_input(event):
-	if event.is_action_pressed("jump") and is_on_floor():
+	if event.is_action_pressed("jump") and timeSinceLastOnFloor < coyoteTime:
 		velocity[1] = -jumpStrength
 
 func takeDamage():

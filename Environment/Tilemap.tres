@@ -2,8 +2,8 @@
 
 [ext_resource path="res://art/spr_tiles9x23.png" type="Texture" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )

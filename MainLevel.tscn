@@ -53,8 +53,6 @@ process_material = SubResource( 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="BossHp" parent="CanvasLayer" instance=ExtResource( 4 )]
-margin_top = 556.163
-margin_bottom = 596.163
 mouse_filter = 2
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource( 8 )]

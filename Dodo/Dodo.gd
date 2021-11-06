@@ -88,8 +88,10 @@ func _unhandled_input(event):
 
 func takeDamage():
 	health -= 1
+	$HitParticleEffect.emitting = true
 	if healthRef:
 		healthRef.hit()
 	if health <= 0:
 		emit_signal("died")
-	print("Dodo was hit!")
+		queue_free()
+		

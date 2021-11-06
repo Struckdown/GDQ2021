@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://art/spr_dodoright.png" type="Texture" id=1]
 [ext_resource path="res://Dodo/Dodo.gd" type="Script" id=2]
 [ext_resource path="res://art/spr_dodorunright.png" type="Texture" id=3]
 [ext_resource path="res://SFX/Fwsh 1.mp3" type="AudioStream" id=4]
+[ext_resource path="res://UI/feathers.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.1098, 16.0791 )
@@ -100,6 +101,27 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 1.0
+angular_velocity = 150.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.6
+color_ramp = SubResource( 5 )
+
 [node name="Dodo" type="KinematicBody2D" groups=[
 "canBeHitByMissiles",
 "missileTrackable",
@@ -120,3 +142,12 @@ anims/run = SubResource( 3 )
 
 [node name="DashSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="HitParticleEffect" type="Particles2D" parent="."]
+emitting = false
+amount = 60
+one_shot = true
+explosiveness = 1.0
+local_coords = false
+process_material = SubResource( 6 )
+texture = ExtResource( 5 )

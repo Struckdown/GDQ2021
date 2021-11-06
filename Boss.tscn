@@ -7,9 +7,13 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 300.921, 71.2753 )
 
-[node name="MainLevel" type="Node2D"]
+[node name="Boss" type="Node2D"]
+
+[node name="Boss" parent="." instance=ExtResource( 1 )]
+script = null
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
+position = Vector2( 291, 11 )
 
 [node name="Camera2D" type="Camera2D" parent="Dodo"]
 position = Vector2( 411.466, 187.895 )
@@ -21,13 +25,13 @@ limit_bottom = 400
 limit_smoothed = true
 smoothing_enabled = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Floor box" type="StaticBody2D" parent="."]
 position = Vector2( 81.567, 183.315 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor box"]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+[node name="Sprite" type="Sprite" parent="Floor box"]
 position = Vector2( 1.17982, 0.943907 )
 scale = Vector2( 9.41375, 2.29783 )
 texture = ExtResource( 2 )

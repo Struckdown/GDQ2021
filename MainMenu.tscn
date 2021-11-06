@@ -1,10 +1,31 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/Controls.png" type="Texture" id=2]
 [ext_resource path="res://UI/back.png" type="Texture" id=3]
 [ext_resource path="res://UI/back_clicked.png" type="Texture" id=4]
 [ext_resource path="res://UI/back_hover.png" type="Texture" id=5]
+[ext_resource path="res://UI/controls_base.png" type="Texture" id=6]
+[ext_resource path="res://UI/controls_hover.png" type="Texture" id=7]
+[ext_resource path="res://UI/controls_clicked.png" type="Texture" id=8]
+[ext_resource path="res://Font/PixelFJVerdana12pt.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 37, 19 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 37, 19 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 37, 19 )
+
+[sub_resource type="DynamicFont" id=8]
+extra_spacing_top = 30
+extra_spacing_bottom = 29
+font_data = ExtResource( 9 )
 
 [sub_resource type="Theme" id=1]
 
@@ -37,35 +58,60 @@ __meta__ = {
 }
 
 [node name="MenuButtons" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -100.0
-margin_right = 100.0
-custom_constants/separation = 20
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = -309.0
+margin_right = 208.0
+margin_bottom = -16.0
+custom_constants/separation = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayButton" type="Button" parent="MenuButtons"]
-margin_right = 200.0
-margin_bottom = 20.0
-text = "PLAY"
+[node name="Play" type="Button" parent="MenuButtons"]
+margin_right = 193.0
+margin_bottom = 95.0
+grow_horizontal = 2
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ControlsButton" type="Button" parent="MenuButtons"]
-margin_top = 40.0
-margin_right = 200.0
-margin_bottom = 60.0
-text = "CONTROLS"
+[node name="Controls" type="Button" parent="MenuButtons"]
+margin_top = 99.0
+margin_right = 193.0
+margin_bottom = 194.0
+grow_horizontal = 2
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="QuitButton" type="Button" parent="MenuButtons"]
-margin_top = 80.0
-margin_right = 200.0
-margin_bottom = 100.0
-text = "QUIT"
+[node name="Quit" type="Button" parent="MenuButtons"]
+margin_top = 198.0
+margin_right = 193.0
+margin_bottom = 293.0
+grow_horizontal = 2
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ControlRect" type="TextureRect" parent="."]
+visible = false
 margin_left = 81.0
 margin_top = 12.6908
 margin_right = 942.0
@@ -91,7 +137,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="MenuButtons/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="MenuButtons/ControlsButton" to="." method="_on_ControlsButton_pressed"]
-[connection signal="pressed" from="MenuButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="MenuButtons/Play" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MenuButtons/Controls" to="." method="_on_ControlsButton_pressed"]
+[connection signal="pressed" from="MenuButtons/Quit" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="ControlRect/BackButton" to="." method="_on_BackButton_pressed"]

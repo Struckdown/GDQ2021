@@ -20,3 +20,7 @@ func _on_BGM_finished():
 		"main":
 			pass	# keep playing the same song
 	$BGM.play()
+
+
+func _on_Dodo_died():
+	$CanvasLayer/GameOver.startGameOver()

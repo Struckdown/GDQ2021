@@ -17,6 +17,8 @@ var anim
 var onFloor = false
 var timeSinceLastOnFloor = 0
 export(float) var coyoteTime = 0.15	# how much time can still jump while not on floor since last on floor
+var health = 3
+signal died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -84,4 +86,7 @@ func _unhandled_input(event):
 		velocity[1] = -jumpStrength
 
 func takeDamage():
+	health -= 1
+	if health <= 0:
+		emit_signal("died")
 	print("Dodo was hit!")

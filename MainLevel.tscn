@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://WorkingPauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mechs/KillerDutchMech.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Font/PixelFJVerdana12pt.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://UI/GameOver.tscn" type="PackedScene" id=11]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -93,6 +94,10 @@ margin_bottom = 596.163
 
 [node name="Pause" parent="CanvasLayer" instance=ExtResource( 8 )]
 
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 11 )]
+margin_right = 1024.0
+margin_bottom = 600.0
+
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
@@ -105,4 +110,5 @@ position = Vector2( 1132.71, -366.651 )
 z_index = -1
 bossHPRef = NodePath("../CanvasLayer/BossHp")
 
+[connection signal="died" from="Dodo" to="." method="_on_Dodo_died"]
 [connection signal="finished" from="BGM" to="." method="_on_BGM_finished"]

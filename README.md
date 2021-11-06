@@ -4,7 +4,11 @@
 
 A game made for the Games Den Quick 2021 Game Jam
 
+![logo](logo.png)
 
+Made with Godot
+
+![icon](icon.png)
 
 ## Team 👨‍👨‍👦‍👦
 

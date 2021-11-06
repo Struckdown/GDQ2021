@@ -32,6 +32,7 @@ position = Vector2( 1.17982, 0.943907 )
 scale = Vector2( 9.41375, 2.29783 )
 texture = ExtResource( 2 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Pause" type="CanvasLayer" parent="."]
 
-[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="Pause Menu" parent="Pause" instance=ExtResource( 3 )]
+visible = false

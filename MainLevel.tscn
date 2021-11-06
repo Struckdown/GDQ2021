@@ -11,7 +11,7 @@
 [ext_resource path="res://Mechs/KillerDutchMech.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Font/PixelFJVerdana12pt.ttf" type="DynamicFontData" id=10]
 
-[sub_resource type="ParticlesMaterial" id=1]
+[sub_resource type="ParticlesMaterial" id=4]
 emission_shape = 2
 emission_box_extents = Vector3( 600, 1, 1 )
 flag_disable_z = true
@@ -24,7 +24,7 @@ orbit_velocity_random = 0.0
 scale = 2.0
 scale_random = 1.0
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 300.921, 71.2753 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -54,13 +54,13 @@ lifetime = 3.0
 preprocess = 2.0
 visibility_rect = Rect2( -2000, -2000, 4000, 4000 )
 local_coords = false
-process_material = SubResource( 1 )
+process_material = SubResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 81.567, 183.315 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 position = Vector2( 1.17982, 0.943907 )

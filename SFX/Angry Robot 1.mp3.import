@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Angry Robot 1.mp3-4369cfe3d7442ff013b155a9ff9aa27c.mp3str"
+
+[deps]
+
+source_file="res://SFX/Angry Robot 1.mp3"
+dest_files=[ "res://.import/Angry Robot 1.mp3-4369cfe3d7442ff013b155a9ff9aa27c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

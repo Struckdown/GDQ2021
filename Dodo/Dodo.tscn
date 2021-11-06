@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://art/spr_dodoright.png" type="Texture" id=1]
 [ext_resource path="res://Dodo/Dodo.gd" type="Script" id=2]
 [ext_resource path="res://art/spr_dodorunright.png" type="Texture" id=3]
+[ext_resource path="res://SFX/Fwsh 1.mp3" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.1098, 16.0791 )
@@ -116,3 +117,6 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 2 )
 anims/run = SubResource( 3 )
+
+[node name="DashSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

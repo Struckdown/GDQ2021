@@ -44,6 +44,7 @@ func applyMovement(delta):
 		updateAnim("idle")
 
 	if dashRequested:
+		$DashSFX.play()
 		if heldDirections[0] == 0 and heldDirections[1] == 0:
 			heldDirections[0] = facingRight
 		velocity = heldDirections * dashSpeed

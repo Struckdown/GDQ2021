@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bird Noise 2.mp3-f67e2e661934a6fae5765e5ea4b2d401.mp3str"
+
+[deps]
+
+source_file="res://SFX/Bird Noise 2.mp3"
+dest_files=[ "res://.import/Bird Noise 2.mp3-f67e2e661934a6fae5765e5ea4b2d401.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

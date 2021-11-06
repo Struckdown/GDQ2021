@@ -22,7 +22,9 @@ func _input(event):
 
 
 func _on_resume_pressed():
-	get_tree().paused = not get_tree().paused
+	var is_paused = not get_tree().paused
+	get_tree().paused = is_paused
+	visible = is_paused
 
 
 func _on_quit_pressed():

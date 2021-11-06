@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Dodo Dead Noise 1.mp3-8f255be7fbc7b3dddffce96af3ec3c
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

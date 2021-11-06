@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Dodo Hurt Noise 1.mp3-e16df32f885840cf8ff7a9c89eebcc
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

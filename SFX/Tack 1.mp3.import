@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Tack 1.mp3-a3d9e34bc98a4bed172a4381e0836b5f.mp3str" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

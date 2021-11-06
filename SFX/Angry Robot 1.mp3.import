@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Angry Robot 1.mp3-4369cfe3d7442ff013b155a9ff9aa27c.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

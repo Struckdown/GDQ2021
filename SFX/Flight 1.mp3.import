@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Flight 1.mp3-0f7c39691983b9a1021e4a446d3b778d.mp3str
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

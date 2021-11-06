@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Flight 3.mp3-bfff3e431fd2141159e78d035eb76f0d.mp3str"
+
+[deps]
+
+source_file="res://SFX/Flight 3.mp3"
+dest_files=[ "res://.import/Flight 3.mp3-bfff3e431fd2141159e78d035eb76f0d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

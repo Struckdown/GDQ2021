@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dodo Dead Noise 1.mp3-8f255be7fbc7b3dddffce96af3ec3ce6.mp3str"
+
+[deps]
+
+source_file="res://SFX/Dodo Dead Noise 1.mp3"
+dest_files=[ "res://.import/Dodo Dead Noise 1.mp3-8f255be7fbc7b3dddffce96af3ec3ce6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

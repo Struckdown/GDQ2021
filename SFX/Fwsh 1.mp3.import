@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Fwsh 1.mp3-e73b42a1c0b00c75d6d1a2b507cd6318.mp3str"
+
+[deps]
+
+source_file="res://SFX/Fwsh 1.mp3"
+dest_files=[ "res://.import/Fwsh 1.mp3-e73b42a1c0b00c75d6d1a2b507cd6318.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

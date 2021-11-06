@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/controls.png-71671312c45b5f9c4dfc88b6edb42f51.stex"
+path="res://.import/missleSprites.png-b38f9e94faab82242f8ed5137802f5df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/controls.png"
-dest_files=[ "res://.import/controls.png-71671312c45b5f9c4dfc88b6edb42f51.stex" ]
+source_file="res://art/missleSprites.png"
+dest_files=[ "res://.import/missleSprites.png-b38f9e94faab82242f8ed5137802f5df.stex" ]
 
 [params]
 

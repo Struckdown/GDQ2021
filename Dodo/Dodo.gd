@@ -21,6 +21,7 @@ var health = 3
 export(NodePath) onready var healthRef = get_node(healthRef)
 signal died
 var playerHasControl = true
+var invulnerable = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -92,6 +93,10 @@ func _unhandled_input(event):
 		velocity[1] = -jumpStrength
 
 func takeDamage():
+	if invulnerable:
+		return
+	$InvulnerabilityPlayer.play("Invulnerable")
+	invulnerable = true
 	health -= 1
 	$HitParticleEffect.emitting = true
 	if healthRef:
@@ -100,3 +105,7 @@ func takeDamage():
 		playerHasControl = false
 		emit_signal("died")
 		
+
+
+func _on_InvulnerabilityPlayer_animation_finished(_anim_name):
+	invulnerable = false

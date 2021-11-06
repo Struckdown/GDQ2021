@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://art/spr_dodoright.png" type="Texture" id=1]
 [ext_resource path="res://Dodo/Dodo.gd" type="Script" id=2]
@@ -122,6 +122,21 @@ angle_random = 1.0
 scale = 0.6
 color_ramp = SubResource( 5 )
 
+[sub_resource type="Animation" id=7]
+resource_name = "Invulnerable"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true ]
+}
+
 [node name="Dodo" type="KinematicBody2D" groups=[
 "Player",
 "canBeHitByMissiles",
@@ -152,3 +167,8 @@ explosiveness = 1.0
 local_coords = false
 process_material = SubResource( 6 )
 texture = ExtResource( 5 )
+
+[node name="InvulnerabilityPlayer" type="AnimationPlayer" parent="."]
+anims/Invulnerable = SubResource( 7 )
+
+[connection signal="animation_finished" from="InvulnerabilityPlayer" to="." method="_on_InvulnerabilityPlayer_animation_finished"]

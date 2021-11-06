@@ -42,6 +42,9 @@ func takeDamage():
 	if bossHPRef:
 		bossHPRef.setHealth(float(health)/float(maxHealth))
 	bossAggressionMultiplier += .5
+	var i = health + 1
+	$HitSFX.stream = load("res://SFX/Angry Robot " + str(i) + ".mp3")
+	$HitSFX.play()
 	print("Mech has taken damage!")
 
 func getClosestLauncherToDodo():

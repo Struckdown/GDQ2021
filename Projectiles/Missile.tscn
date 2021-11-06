@@ -42,8 +42,10 @@ shape = SubResource( 1 )
 [node name="Lifetime" type="Timer" parent="."]
 wait_time = 10.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+volume_db = -20.0
+max_distance = 3000.0
 
 [node name="ExplosionTimer" type="Timer" parent="."]
 wait_time = 2.0

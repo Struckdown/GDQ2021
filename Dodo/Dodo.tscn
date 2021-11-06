@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://art/spr_dodoright.png" type="Texture" id=1]
 [ext_resource path="res://Dodo/Dodo.gd" type="Script" id=2]
 [ext_resource path="res://art/spr_dodorunright.png" type="Texture" id=3]
 [ext_resource path="res://SFX/Fwsh 1.mp3" type="AudioStream" id=4]
 [ext_resource path="res://UI/feathers.png" type="Texture" id=5]
+[ext_resource path="res://SFX/Bird Noise 1.mp3" type="AudioStream" id=6]
+[ext_resource path="res://SFX/Dodo Hurt Noise 1.mp3" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.1098, 16.0791 )
@@ -171,4 +173,15 @@ texture = ExtResource( 5 )
 [node name="InvulnerabilityPlayer" type="AnimationPlayer" parent="."]
 anims/Invulnerable = SubResource( 7 )
 
+[node name="RandomDodoSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="RandomDodoNoiseTimer" type="Timer" parent="RandomDodoSFX"]
+wait_time = 10.0
+autostart = true
+
+[node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+
 [connection signal="animation_finished" from="InvulnerabilityPlayer" to="." method="_on_InvulnerabilityPlayer_animation_finished"]
+[connection signal="timeout" from="RandomDodoSFX/RandomDodoNoiseTimer" to="." method="_on_RandomDodoNoiseTimer_timeout"]

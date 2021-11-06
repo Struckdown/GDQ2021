@@ -104,8 +104,14 @@ func takeDamage():
 	if health <= 0:
 		playerHasControl = false
 		emit_signal("died")
-		
-
+	else:
+		$HurtSFX.stream = load("res://SFX/Dodo Dead Noise 1.mp3")
+	$HurtSFX.play()
 
 func _on_InvulnerabilityPlayer_animation_finished(_anim_name):
 	invulnerable = false
+
+
+func _on_RandomDodoNoiseTimer_timeout():
+	$RandomDodoSFX.stream = load("res://SFX/Bird Noise " + str(randi()%3+1) +".mp3")
+	$RandomDodoSFX.play()

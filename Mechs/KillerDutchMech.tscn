@@ -48,7 +48,6 @@ texture = ExtResource( 1 )
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head/KinematicBody2D"]
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="LegL" type="Sprite" parent="."]

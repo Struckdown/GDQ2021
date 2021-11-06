@@ -13,6 +13,7 @@ var dashTimeCap = 0.2	# seconds
 var dashSpeed = 800
 var wasDashing = false
 var facingRight = 1	# either 1 or -1
+var anim
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,8 +34,15 @@ func determineInputs():
 func applyMovement(delta):
 	if heldDirections[0] > 0:
 		facingRight = 1
-	if heldDirections[0] < 0:
+		$Sprite.flip_h = false
+		updateAnim("run")
+	elif heldDirections[0] < 0:
 		facingRight = -1
+		$Sprite.flip_h = true
+		updateAnim("run")
+	else:
+		updateAnim("idle")
+
 	if dashRequested:
 		if heldDirections[0] == 0 and heldDirections[1] == 0:
 			heldDirections[0] = facingRight
@@ -54,6 +62,12 @@ func applyMovement(delta):
 	move_and_slide(velocity*50, Vector2(0, -1))
 	dashTimeLeft -= delta
 
+func updateAnim(newAnim):
+	if newAnim == anim:
+		return
+	$AnimationPlayer.play(newAnim)
+	anim = newAnim
+	
 
 func _unhandled_input(event):
 	if event.is_action_pressed("jump") and is_on_floor():

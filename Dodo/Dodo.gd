@@ -72,3 +72,6 @@ func updateAnim(newAnim):
 func _unhandled_input(event):
 	if event.is_action_pressed("jump") and is_on_floor():
 		velocity[1] -= 9
+
+func takeDamage():
+	print("Dodo was hit!")

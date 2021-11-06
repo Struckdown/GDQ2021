@@ -47,6 +47,7 @@ func explode():
 		$ExplosionTimer.start()
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
 		$Sprite.hide()
+	queue_free()
 
 
 func _on_ExplosionTimer_timeout():

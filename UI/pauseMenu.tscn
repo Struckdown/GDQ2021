@@ -6,15 +6,17 @@
 [ext_resource path="res://UI/controls_hover.png" type="Texture" id=5]
 [ext_resource path="res://UI/controls_clicked.png" type="Texture" id=6]
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 37, 19 )
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 37, 19 )
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 37, 19 )
 
 [sub_resource type="DynamicFont" id=4]
 extra_spacing_top = 22
@@ -79,9 +81,9 @@ __meta__ = {
 margin_right = 168.0
 margin_bottom = 82.0
 grow_horizontal = 2
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
 custom_fonts/font = SubResource( 4 )
 text = "   Resume   "
 __meta__ = {
@@ -89,13 +91,13 @@ __meta__ = {
 }
 
 [node name="quit" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 96.0
+margin_top = 86.0
 margin_right = 168.0
 margin_bottom = 168.0
 grow_horizontal = 2
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
 custom_fonts/font = SubResource( 4 )
 text = "   Quit   "
 __meta__ = {

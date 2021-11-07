@@ -2,6 +2,7 @@ extends Node2D
 
 
 var missile = preload("res://Projectiles/Missile.tscn")
+var bombFake = preload("res://Projectiles/BombFake.tscn")
 var health
 export(int) var maxHealth = 3
 export(float) var moveSpeed = 100
@@ -13,6 +14,7 @@ export(NodePath) onready var navigation2D = get_node(navigation2D)
 var dest = Vector2.ZERO
 var bossAggressionMultiplier = 1
 var explosionParticles = preload("res://Mechs/ExplosionParticle.tscn")
+export(String, "missiles", "bombs") var state = "missiles"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,7 +29,8 @@ func move(delta):
 	global_position -= (global_position-dest).normalized() * moveSpeed * delta
 
 func _on_MissileLauncherTimer_timeout():
-	fireMissile()
+	if state == "missiles":
+		fireMissile()
 
 func fireMissile():
 	var l = getClosestLauncherToDodo()
@@ -99,8 +102,28 @@ func swatHand():
 	$AnimationTree.get("parameters/playback").travel("batLHand")
 
 
-
 func _on_ChaseTimer_timeout():
 	dest = navigation2D.get_closest_point(dodo.global_position)
 #		$Navigation2D.get_closest_point()
 
+func fireBombs(isLeft):
+	var pos
+	if isLeft:
+		pos = $UpperArmL/ArmL/HandL/Position2DFinger
+	else:
+		pos = $UpperArmR/ArmR/HandR/Position2DFinger
+	var m = bombFake.instance()
+	get_viewport().add_child(m)
+	m.speed *= bossAggressionMultiplier
+	m.global_position = pos.global_position
+	m.global_rotation = pos.global_rotation
+	pos.get_child(0).emitting = true
+	$MissileLaunchedSFX.play()
+
+func _on_PhaseTimer_timeout():
+	match state:
+		"missiles":
+			state = "bombs"
+			$AnimationTree.get("parameters/playback").travel("FireBombsUpwards")
+		"bombs":
+			state = "missiles"

@@ -16,6 +16,7 @@ config/description="A Sphere Factor Production
 run/main_scene="res://MainMenu.tscn"
 boot_splash/image="res://logo.png"
 config/icon="res://logo.png"
+config/windows_native_icon="res://art/icon.ico"
 
 [autoload]
 

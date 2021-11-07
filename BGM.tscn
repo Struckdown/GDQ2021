@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://BGM/GDQ - 2021 - BGM - Main Menu Idle Song 1.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/BGM.gd" type="Script" id=2]
 
 [node name="BGM" type="AudioStreamPlayer"]
-stream = ExtResource( 1 )
 autoplay = true
 script = ExtResource( 2 )
 

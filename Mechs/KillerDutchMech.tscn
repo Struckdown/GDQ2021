@@ -11,21 +11,21 @@
 [ext_resource path="res://art/spr_handspointout.png" type="Texture" id=9]
 [ext_resource path="res://art/spr_handspoint.png" type="Texture" id=10]
 
-[sub_resource type="Gradient" id=20]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.523077, 1 )
 colors = PoolColorArray( 0.0773983, 0.344564, 0.63916, 1, 0.086071, 0.346619, 0.479004, 1, 0.0431373, 0.413392, 0.478431, 0 )
 
-[sub_resource type="GradientTexture" id=21]
-gradient = SubResource( 20 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Curve" id=22]
+[sub_resource type="Curve" id=3]
 max_value = 10.0
 _data = [ Vector2( 0.00862069, 10 ), 0.0, 0.0, 0, 0, Vector2( 1, 5.67045 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=23]
-curve = SubResource( 22 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=19]
+[sub_resource type="ParticlesMaterial" id=5]
 lifetime_randomness = 0.5
 emission_shape = 2
 emission_box_extents = Vector3( 25, 1, 1 )
@@ -35,23 +35,23 @@ gravity = Vector3( 0, 98, 0 )
 initial_velocity = 800.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 23 )
-color_ramp = SubResource( 21 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=6]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=8]
 max_value = 3.0
 _data = [ Vector2( 0, 1 ), 0.0, 5.19161, 0, 0, Vector2( 0.997126, 3 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=10]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
@@ -59,13 +59,13 @@ orbit_velocity_random = 0.0
 angle = 360.0
 angle_random = 1.0
 scale_random = 1.0
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
 
-[sub_resource type="RectangleShape2D" id=28]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 44.4944, 68.3502 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -79,7 +79,7 @@ tracks/0/keys = {
 "values": [ true, false, true, false, true, false, true, false, true, false, true ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 resource_name = "FireBombsUpwards"
 length = 5.0
 tracks/0/type = "value"
@@ -241,7 +241,7 @@ tracks/8/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=14]
 resource_name = "FireMissile"
 length = 4.0
 tracks/0/type = "value"
@@ -358,7 +358,7 @@ tracks/8/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=15]
 resource_name = "SwatHead"
 length = 3.1
 tracks/0/type = "value"
@@ -446,7 +446,7 @@ tracks/6/keys = {
 "values": [ false, true, true, false ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=16]
 length = 2.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("UpperArmL/ArmL/HandL:rotation_degrees")
@@ -485,7 +485,7 @@ tracks/2/keys = {
 "values": [ -2.42474, 93.014, 69.2846, 14.9413, -2.42474 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=17]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -801,63 +801,63 @@ tracks/25/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "FireBombsUpwards"
 
-[sub_resource type="AnimationNodeAnimation" id=25]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "FireMissile"
 
-[sub_resource type="AnimationNodeAnimation" id=31]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "SwatHead"
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "batLHand"
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "rest"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
-switch_mode = 2
-auto_advance = true
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+[sub_resource type="AnimationNodeStateMachineTransition" id=29]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=13]
-states/FireBombsUpwards/node = SubResource( 16 )
+[sub_resource type="AnimationNodeStateMachine" id=31]
+states/FireBombsUpwards/node = SubResource( 18 )
 states/FireBombsUpwards/position = Vector2( 187.919, 157.492 )
-states/FireMissile/node = SubResource( 25 )
+states/FireMissile/node = SubResource( 19 )
 states/FireMissile/position = Vector2( -88.081, 60.492 )
-states/SwatHead/node = SubResource( 31 )
+states/SwatHead/node = SubResource( 20 )
 states/SwatHead/position = Vector2( 176, -80.74 )
-states/batLHand/node = SubResource( 9 )
+states/batLHand/node = SubResource( 21 )
 states/batLHand/position = Vector2( 636, 45 )
-states/rest/node = SubResource( 10 )
+states/rest/node = SubResource( 22 )
 states/rest/position = Vector2( 176, 29 )
-transitions = [ "rest", "batLHand", SubResource( 11 ), "batLHand", "rest", SubResource( 12 ), "rest", "FireBombsUpwards", SubResource( 17 ), "FireBombsUpwards", "rest", SubResource( 18 ), "rest", "FireMissile", SubResource( 26 ), "FireMissile", "rest", SubResource( 27 ), "rest", "SwatHead", SubResource( 32 ), "SwatHead", "rest", SubResource( 33 ) ]
+transitions = [ "rest", "batLHand", SubResource( 23 ), "batLHand", "rest", SubResource( 24 ), "rest", "FireBombsUpwards", SubResource( 25 ), "FireBombsUpwards", "rest", SubResource( 26 ), "rest", "FireMissile", SubResource( 27 ), "FireMissile", "rest", SubResource( 28 ), "rest", "SwatHead", SubResource( 29 ), "SwatHead", "rest", SubResource( 30 ) ]
 start_node = "rest"
 graph_offset = Vector2( -620.673, -166.71 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=14]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=32]
 
-[sub_resource type="RectangleShape2D" id=30]
+[sub_resource type="RectangleShape2D" id=33]
 extents = Vector2( 101.656, 27.6567 )
 
 [node name="KillerDutchMech" type="Node2D"]
@@ -873,7 +873,7 @@ texture = ExtResource( 5 )
 [node name="Particles2D" type="Particles2D" parent="Body"]
 position = Vector2( 0, 115.711 )
 lifetime = 0.1
-process_material = SubResource( 19 )
+process_material = SubResource( 5 )
 
 [node name="Head" type="Sprite" parent="."]
 position = Vector2( 0, -128.647 )
@@ -888,7 +888,7 @@ polygon = PoolVector2Array( -1.21788, -68.4254, 72.719, -58.6721, 96.0012, -42.9
 
 [node name="UpperArmL" type="Sprite" parent="."]
 position = Vector2( -116.179, -88.1709 )
-rotation = 0.158695
+rotation = 0.253469
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -900,7 +900,7 @@ __meta__ = {
 
 [node name="ArmL" type="Sprite" parent="UpperArmL"]
 position = Vector2( -0.748195, 137.689 )
-rotation = -7.59099
+rotation = -7.82385
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -910,7 +910,7 @@ __meta__ = {
 
 [node name="HandL" type="Sprite" parent="UpperArmL/ArmL"]
 position = Vector2( 0.587658, -138.431 )
-rotation = 0.937929
+rotation = 1.07692
 texture = ExtResource( 6 )
 offset = Vector2( 2.26794, -65.4607 )
 hframes = 2
@@ -927,7 +927,7 @@ amount = 2
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
-process_material = SubResource( 5 )
+process_material = SubResource( 10 )
 texture = ExtResource( 7 )
 
 [node name="Position2DFinger" type="Position2D" parent="UpperArmL/ArmL/HandL"]
@@ -940,7 +940,7 @@ amount = 2
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
-process_material = SubResource( 5 )
+process_material = SubResource( 10 )
 texture = ExtResource( 7 )
 
 [node name="HurtBoxHandL" type="Area2D" parent="UpperArmL/ArmL/HandL"]
@@ -948,11 +948,11 @@ position = Vector2( -8.72307, -56.5782 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpperArmL/ArmL/HandL/HurtBoxHandL"]
 position = Vector2( 1.16264, -10.9904 )
-shape = SubResource( 28 )
+shape = SubResource( 11 )
 
 [node name="UpperArmR" type="Sprite" parent="."]
 position = Vector2( 109.81, -88.1709 )
-rotation = -0.021713
+rotation = -0.0533843
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -963,7 +963,7 @@ __meta__ = {
 
 [node name="ArmR" type="Sprite" parent="UpperArmR"]
 position = Vector2( -0.748195, 137.689 )
-rotation = 1.26743
+rotation = 1.42283
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -974,7 +974,7 @@ __meta__ = {
 
 [node name="HandR" type="Sprite" parent="UpperArmR/ArmR"]
 position = Vector2( 2.1962, -144.387 )
-rotation = -0.799034
+rotation = -0.921865
 texture = ExtResource( 6 )
 offset = Vector2( -5.76402, -58.4693 )
 hframes = 2
@@ -992,7 +992,7 @@ amount = 2
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
-process_material = SubResource( 5 )
+process_material = SubResource( 10 )
 texture = ExtResource( 7 )
 
 [node name="Position2DFinger" type="Position2D" parent="UpperArmR/ArmR/HandR"]
@@ -1006,7 +1006,7 @@ amount = 2
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
-process_material = SubResource( 5 )
+process_material = SubResource( 10 )
 texture = ExtResource( 7 )
 
 [node name="HurtBoxHandR" type="Area2D" parent="UpperArmR/ArmR/HandR"]
@@ -1014,14 +1014,14 @@ position = Vector2( 1.11797, -48.0541 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UpperArmR/ArmR/HandR/HurtBoxHandR"]
 position = Vector2( 1.16264, -10.9904 )
-shape = SubResource( 28 )
+shape = SubResource( 11 )
 
 [node name="MissileLauncherTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
 [node name="InvulnerableAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/invulnerable = SubResource( 8 )
+anims/invulnerable = SubResource( 12 )
 
 [node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
@@ -1031,18 +1031,18 @@ attenuation = 0.378929
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/FireBombsUpwards = SubResource( 15 )
-anims/FireMissile = SubResource( 24 )
-anims/SwatHead = SubResource( 29 )
-anims/batLHand = SubResource( 6 )
-anims/rest = SubResource( 7 )
+anims/FireBombsUpwards = SubResource( 13 )
+anims/FireMissile = SubResource( 14 )
+anims/SwatHead = SubResource( 15 )
+anims/batLHand = SubResource( 16 )
+anims/rest = SubResource( 17 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 13 )
+tree_root = SubResource( 31 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 root_motion_track = NodePath("Body:position")
-parameters/playback = SubResource( 14 )
+parameters/playback = SubResource( 32 )
 
 [node name="MissileLaunchedSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
@@ -1059,7 +1059,7 @@ autostart = true
 position = Vector2( 1.18921, -209.697 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AboveHeadArea"]
-shape = SubResource( 30 )
+shape = SubResource( 33 )
 
 [connection signal="body_entered" from="UpperArmL/ArmL/HandL/HurtBoxHandL" to="." method="_on_HurtBoxHand_body_entered"]
 [connection signal="body_entered" from="UpperArmR/ArmR/HandR/HurtBoxHandR" to="." method="_on_HurtBoxHand_body_entered"]

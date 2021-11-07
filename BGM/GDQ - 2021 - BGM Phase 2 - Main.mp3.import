@@ -11,5 +11,5 @@ dest_files=[ "res://.import/GDQ - 2021 - BGM Phase 2 - Main.mp3-24123c190d445574
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

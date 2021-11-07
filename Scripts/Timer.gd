@@ -18,9 +18,9 @@ func _process(_delta):
 		var time = (OS.get_ticks_msec() - start_time) / 10
 		timer_value = time
 		var milli = time / 10
-		var seconds = (milli / 10) % 100
-		var minutes = (seconds / 60) % 60
-		self.text = prefix + "%0*d" % [2, minutes] + ':' + "%0*d" % [2, seconds] + ':' + str(milli)[-1]
+		var seconds = (milli / 10)
+		var minutes = (seconds / 60)
+		self.text = prefix + "%0*d" % [2, minutes % 60] + ':' + "%0*d" % [2, seconds % 60] + ':' + str(milli)[-1]
 	
 
 func on_pause():

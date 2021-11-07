@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spr_drone.png-5535b9463977c05ba65e1170c13f4d80.stex"
+path="res://.import/dron21.png-625667943650aad9d77d4409b4b74736.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/spr_drone.png"
-dest_files=[ "res://.import/spr_drone.png-5535b9463977c05ba65e1170c13f4d80.stex" ]
+source_file="res://art/dron21.png"
+dest_files=[ "res://.import/dron21.png-625667943650aad9d77d4409b4b74736.stex" ]
 
 [params]
 

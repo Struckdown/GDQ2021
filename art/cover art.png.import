@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spr_drone.png-5535b9463977c05ba65e1170c13f4d80.stex"
+path="res://.import/cover art.png-74d35ef8877b93c26161c8117c1a2220.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/spr_drone.png"
-dest_files=[ "res://.import/spr_drone.png-5535b9463977c05ba65e1170c13f4d80.stex" ]
+source_file="res://art/cover art.png"
+dest_files=[ "res://.import/cover art.png-74d35ef8877b93c26161c8117c1a2220.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

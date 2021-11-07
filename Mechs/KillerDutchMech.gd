@@ -20,12 +20,15 @@ export(String, "missiles", "bombs") var state = "missiles"
 export(float) var swatCooldownMax = 15.0
 var swatCooldown = 0
 export(bool) var handsCanHurt = false
+var levelRef
 
+signal died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = maxHealth
 	dodo = get_tree().get_nodes_in_group("Player")[0]
+	levelRef = get_tree().get_nodes_in_group("Level")[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -42,7 +45,7 @@ func _on_MissileLauncherTimer_timeout():
 func fireMissile():
 	var l = getClosestLauncherToDodo()
 	var m = missile.instance()
-	get_viewport().add_child(m)
+	levelRef.add_child(m)
 	m.speed *= bossAggressionMultiplier
 	m.global_position = l.global_position
 	m.global_rotation = l.get_angle_to(dodo.global_position)
@@ -86,7 +89,7 @@ func getClosestLauncherToDodo():
 func die():
 	for _i in range(15):
 		var e = explosionParticles.instance()
-		get_viewport().add_child(e)
+		levelRef.add_child(e)
 		var r = 500 * sqrt(randf())
 		var theta = randf() * 2 * PI
 		var pos = Vector2(global_position.x + r*cos(theta), global_position.y + r*sin(theta))
@@ -94,6 +97,7 @@ func die():
 		e.emitting = true
 		e.get_child(0).emitting = true
 		yield(get_tree().create_timer(0.05), "timeout")
+	emit_signal("died")
 
 func _on_InvulnerableAnimationPlayer_animation_finished(_anim_name):
 	invulnerable = false
@@ -114,7 +118,7 @@ func fireBombs(isLeft):
 	else:
 		pos = $UpperArmR/ArmR/HandR/Position2DFinger
 	var m = bombFake.instance()
-	get_viewport().add_child(m)
+	levelRef.add_child(m)
 	m.speed *= bossAggressionMultiplier
 	m.global_position = pos.global_position
 	m.global_rotation = pos.global_rotation

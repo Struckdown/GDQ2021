@@ -14,7 +14,7 @@ func _process(_delta):
 	shake()
 
 func shake():
-	if trauma > 0:
+	if trauma > 0 and is_instance_valid(cameraRef):
 		cameraRef.offset = Vector2(randf(), randf()) * trauma*10
 		
 		

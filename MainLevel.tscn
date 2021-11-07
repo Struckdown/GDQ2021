@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://health.tscn" type="PackedScene" id=2]
@@ -6,12 +6,14 @@
 [ext_resource path="res://Mechs/BossHp.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Projectiles/RainingBombsManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MainLevel.gd" type="Script" id=6]
+[ext_resource path="res://UI/StaminaBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://WorkingPauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mechs/KillerDutchMech.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Timer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UI/GameOver.tscn" type="PackedScene" id=11]
 [ext_resource path="res://art/spr_sky.png" type="Texture" id=12]
 [ext_resource path="res://art/spr_mountains.png" type="Texture" id=13]
+[ext_resource path="res://Drone.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -31,14 +33,21 @@ vertices = PoolVector2Array( -1803.52, -810.13, 1942.75, -940.297, 1780.84, 494.
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( -1803.52, -810.13, 1942.75, -940.297, 1780.84, 494.714, -1787.64, 339.148 ) ]
 
-[node name="MainLevel3" type="Node2D"]
+[node name="MainLevel" type="Node2D" groups=[
+"Level",
+]]
 script = ExtResource( 6 )
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
 
+[node name="Drone" parent="." instance=ExtResource( 14 )]
+position = Vector2( -1850.11, -158.909 )
+
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2059.1, 11.3137 )
 scale = Vector2( 2, 2 )
 healthRef = NodePath("../Other/Health")
+staminaRef = NodePath("../Other/StaminaBar")
 
 [node name="Camera2D" type="Camera2D" parent="Dodo" groups=[
 "Camera",
@@ -76,6 +85,14 @@ margin_top = -600.0
 margin_right = 152.0
 margin_bottom = -570.0
 mouse_filter = 2
+
+[node name="StaminaBar" parent="Other" instance=ExtResource( 7 )]
+margin_left = 9.01019
+margin_top = 102.0
+margin_right = -790.99
+margin_bottom = -482.0
+mouse_filter = 2
+value = 100.0
 
 [node name="GameOver" parent="Other" instance=ExtResource( 11 )]
 margin_right = 1024.0
@@ -144,3 +161,5 @@ position = Vector2( 2.11896, 0 )
 navpoly = SubResource( 2 )
 
 [connection signal="died" from="Dodo" to="." method="_on_Dodo_died"]
+[connection signal="gameOver" from="Other/GameOver" to="." method="_on_GameOver_gameOver"]
+[connection signal="died" from="KillerDutchMech" to="." method="_on_KillerDutchMech_died"]

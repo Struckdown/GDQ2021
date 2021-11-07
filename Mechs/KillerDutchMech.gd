@@ -17,6 +17,11 @@ var bossAggressionMultiplier = 1
 var explosionParticles = preload("res://Mechs/ExplosionParticle.tscn")
 export(String, "missiles", "bombs") var state = "missiles"
 
+var swatCooldownMax = 15
+var swatCooldown = 0
+export(bool) var handsCanHurt = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = maxHealth
@@ -25,6 +30,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	move(delta)
+	swatCooldown -= delta
 
 func move(delta):
 	global_position -= (global_position-dest).normalized() * moveSpeed * delta
@@ -126,3 +132,14 @@ func _on_PhaseTimer_timeout():
 
 func activeBombManager():
 	bombsManager.startRainingBombs(bossAggressionMultiplier)
+
+
+func _on_AboveHeadArea_body_entered(body):
+	if body.is_in_group("Player") and swatCooldown <= 0:
+		$AnimationTree.get("parameters/playback").travel("SwatHead")
+
+
+func _on_HurtBoxHand_body_entered(body):
+	if body.is_in_group("Player") and handsCanHurt:
+		body.takeDamage()
+		

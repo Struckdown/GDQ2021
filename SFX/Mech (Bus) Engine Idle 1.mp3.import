@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Mech (Bus) Engine Idle 1.mp3-8ae00afaf98d18a2f14e102
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

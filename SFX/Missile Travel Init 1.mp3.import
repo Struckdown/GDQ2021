@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Missile Travel Init 1.mp3-5e7fc67097721a435f3dea673d
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

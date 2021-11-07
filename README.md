@@ -1,22 +1,32 @@
-# GDQ2021
+# The Last Dodo
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
+![icon](art/icon.png)
+
+As the last dodo you must 
+
+## Screenshot
+
+
+
+## About
 
 A game made for the Games Den Quick 2021 Game Jam
 
 ![logo](logo.png)
 
-Made with Godot
+## Engine ⚙️
+
+Made with Godot :heart: 
 
 ![icon](icon.png)
 
 ## Team 👨‍👨‍👦‍👦
 
-* Boris
-* Sam
-* Andrew 
-* Hiémal
-* Shahzam
+* Boris - programmer
+* Sam - artist
+* Andrew - wildcard (UI + drone AI)
+* Hiémal - sound/music
+* Shahzam - designer
 
 
 

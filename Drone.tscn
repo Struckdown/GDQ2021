@@ -46,6 +46,7 @@ scale = Vector2( 1.37057, 1.37057 )
 z_index = 4
 texture = SubResource( 2 )
 script = ExtResource( 3 )
+max_distance = 550.0
 
 [node name="rays" type="Node2D" parent="."]
 

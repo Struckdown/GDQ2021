@@ -31,7 +31,9 @@ vertices = PoolVector2Array( -1803.52, -810.13, 1942.75, -940.297, 1780.84, 494.
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( -1803.52, -810.13, 1942.75, -940.297, 1780.84, 494.714, -1787.64, 339.148 ) ]
 
-[node name="MainLevel3" type="Node2D"]
+[node name="MainLevel" type="Node2D" groups=[
+"Level",
+]]
 script = ExtResource( 6 )
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]

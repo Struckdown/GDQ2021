@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/Pause.png" type="Texture" id=1]
 [ext_resource path="res://UI/controls_base.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Font/PixelFJVerdana12pt.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://UI/controls_hover.png" type="Texture" id=5]
 [ext_resource path="res://UI/controls_clicked.png" type="Texture" id=6]
+[ext_resource path="res://SFX/Tack 1.mp3" type="AudioStream" id=7]
+[ext_resource path="res://SFX/Flight 3.mp3" type="AudioStream" id=8]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 5 )
@@ -105,5 +107,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="HoverSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/resume" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/quit" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

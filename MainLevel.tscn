@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environment/Terrain.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mechs/BossHp.tscn" type="PackedScene" id=4]
-[ext_resource path="res://BGM/GDQ - 2021 - BGM Phase 1 - Intro.mp3" type="AudioStream" id=5]
 [ext_resource path="res://MainLevel.gd" type="Script" id=6]
 [ext_resource path="res://WorkingPauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mechs/KillerDutchMech.tscn" type="PackedScene" id=9]
@@ -79,10 +78,10 @@ mouse_filter = 2
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Other"]
 scroll_ignore_camera_zoom = true
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Other/ParallaxBackground"]
-motion_scale = Vector2( 0.15, 0 )
+[node name="ParallaxLayerSky" type="ParallaxLayer" parent="Other/ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0 )
 
-[node name="Sky" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer2"]
+[node name="Sky" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayerSky"]
 margin_left = -1019.0
 margin_top = -603.0
 margin_right = 940.0
@@ -93,8 +92,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Other/ParallaxBackground"]
+motion_scale = Vector2( 0.15, 0 )
+
+[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer2"]
+modulate = Color( 0.694118, 0.694118, 0.694118, 1 )
+margin_left = -1362.47
+margin_top = -29.8132
+margin_right = 2986.53
+margin_bottom = 170.187
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Other/ParallaxBackground"]
-motion_scale = Vector2( 0.3, 0 )
+motion_scale = Vector2( 0.25, 0 )
 
 [node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer"]
 margin_left = -1265.0
@@ -107,14 +122,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-autoplay = true
-
 [node name="KillerDutchMech" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1132.71, -366.651 )
 z_index = -1
 bossHPRef = NodePath("../Boss/BossHp")
 
 [connection signal="died" from="Dodo" to="." method="_on_Dodo_died"]
-[connection signal="finished" from="BGM" to="." method="_on_BGM_finished"]

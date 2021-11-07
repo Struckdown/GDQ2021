@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BGM/GDQ - 2021 - BGM - Main Menu Idle Song 1.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/BGM.gd" type="Script" id=2]
+
+[node name="BGM" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+autoplay = true
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

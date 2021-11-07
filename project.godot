@@ -21,6 +21,7 @@ config/icon="res://logo.png"
 
 SceneTransition="*res://SceneTransition.tscn"
 CameraManager="*res://Scripts/CameraManager.tscn"
+BGM="*res://BGM.tscn"
 
 [display]
 

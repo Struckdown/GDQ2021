@@ -4,7 +4,7 @@ var played = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func _input(event):
 	if event.is_action_pressed("restart"):
@@ -19,7 +19,7 @@ func startGameOver():
 		played = true
 		get_tree().paused = true
 		$CenterContainer/AnimationPlayer.play("display")
-
+		
 func restart():
 	get_tree().paused = false
 	SceneTransition.transitionTo("res://MainLevel.tscn")

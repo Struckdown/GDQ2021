@@ -36,6 +36,7 @@ func fireMissile():
 	m.global_rotation = l.global_rotation
 	l.get_child(0).emitting = true
 	yield(get_tree().create_timer(0.4), "timeout")
+	$MissileLaunchedSFX.play()
 	$UpperArmL/ArmL/HandL.texture = load("res://art/spr_hands.png")
 	$UpperArmR/ArmR/HandR.texture = load("res://art/spr_hands.png")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://art/spr_joints.png" type="Texture" id=1]
 [ext_resource path="res://Mechs/KillerDutchMech.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://art/spr_body.png" type="Texture" id=5]
 [ext_resource path="res://art/spr_hands.png" type="Texture" id=6]
 [ext_resource path="res://art/spr_smokecloud.png" type="Texture" id=7]
+[ext_resource path="res://SFX/Missile Launch 1.mp3" type="AudioStream" id=8]
 
 [sub_resource type="Gradient" id=11]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
@@ -16,7 +17,7 @@ gradient = SubResource( 11 )
 
 [sub_resource type="Curve" id=13]
 max_value = 3.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.997126, 3 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 1 ), 0.0, 5.19161, 0, 0, Vector2( 0.997126, 3 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CurveTexture" id=14]
 curve = SubResource( 13 )
@@ -426,7 +427,7 @@ polygon = PoolVector2Array( -1.21788, -68.4254, 72.719, -58.6721, 96.0012, -42.9
 
 [node name="UpperArmL" type="Sprite" parent="."]
 position = Vector2( -116.179, -88.1709 )
-rotation = 0.199269
+rotation = 0.00604719
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -438,7 +439,7 @@ __meta__ = {
 
 [node name="ArmL" type="Sprite" parent="UpperArmL"]
 position = Vector2( -0.748195, 137.689 )
-rotation = -7.69068
+rotation = -7.21593
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -448,7 +449,7 @@ __meta__ = {
 
 [node name="HandL" type="Sprite" parent="UpperArmL/ArmL"]
 position = Vector2( 0.587658, -138.431 )
-rotation = 0.997433
+rotation = 0.714066
 texture = ExtResource( 6 )
 offset = Vector2( 2.26794, -65.4607 )
 hframes = 2
@@ -470,7 +471,7 @@ texture = ExtResource( 7 )
 
 [node name="UpperArmR" type="Sprite" parent="."]
 position = Vector2( 109.81, -88.1709 )
-rotation = -0.0352719
+rotation = 0.0292979
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -481,7 +482,7 @@ __meta__ = {
 
 [node name="ArmR" type="Sprite" parent="UpperArmR"]
 position = Vector2( -0.748195, 137.689 )
-rotation = 1.33396
+rotation = 1.01713
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -492,7 +493,7 @@ __meta__ = {
 
 [node name="HandR" type="Sprite" parent="UpperArmR/ArmR"]
 position = Vector2( 2.1962, -144.387 )
-rotation = -0.85162
+rotation = -0.601198
 texture = ExtResource( 6 )
 offset = Vector2( -5.76402, -58.4693 )
 hframes = 2
@@ -503,6 +504,15 @@ __meta__ = {
 
 [node name="Position2D" type="Position2D" parent="UpperArmR/ArmR/HandR"]
 position = Vector2( -16.7871, -36.792 )
+
+[node name="Particles2D2" type="Particles2D" parent="UpperArmR/ArmR/HandR/Position2D"]
+emitting = false
+amount = 2
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource( 15 )
+texture = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/batLHand = SubResource( 3 )
@@ -528,6 +538,9 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 root_motion_track = NodePath("Body:position")
 parameters/playback = SubResource( 10 )
+
+[node name="MissileLaunchedSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
 
 [connection signal="timeout" from="MissileLauncherTimer" to="." method="_on_MissileLauncherTimer_timeout"]
 [connection signal="animation_finished" from="InvulnerableAnimationPlayer" to="." method="_on_InvulnerableAnimationPlayer_animation_finished"]

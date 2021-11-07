@@ -35,7 +35,9 @@ script = ExtResource( 6 )
 scale = Vector2( 2, 2 )
 healthRef = NodePath("../CanvasLayer/Health")
 
-[node name="Camera2D" type="Camera2D" parent="Dodo"]
+[node name="Camera2D" type="Camera2D" parent="Dodo" groups=[
+"Camera",
+]]
 current = true
 zoom = Vector2( 1.5, 1.5 )
 smoothing_enabled = true

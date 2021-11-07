@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Missile Launch 1.mp3-ca4f151d2df03607f0749f0ee175ce6
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

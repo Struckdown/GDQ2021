@@ -95,6 +95,7 @@ func _unhandled_input(event):
 func takeDamage():
 	if invulnerable:
 		return
+	CameraManager.addTrauma(3)
 	$InvulnerabilityPlayer.play("Invulnerable")
 	invulnerable = true
 	health -= 1

@@ -13,7 +13,7 @@ var prefix = "Timer: "
 func _ready():
 	start_time = OS.get_ticks_msec()
 
-func _process(delta):
+func _process(_delta):
 	if (not is_paused):
 		var time = (OS.get_ticks_msec() - start_time) / 10
 		timer_value = time

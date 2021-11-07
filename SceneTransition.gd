@@ -20,7 +20,9 @@ func transitionTo(level):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
 		"FadeOut":
-			get_tree().change_scene(levelToChangeTo)
+			var err = get_tree().change_scene(levelToChangeTo)
+			if err:
+				print("Error:", err)
 			$AnimationPlayer.play("FadeIn")
 		"FadeIn":
 			emit_signal("fadeInFinished")

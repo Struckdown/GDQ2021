@@ -55,12 +55,16 @@ visibility_rect = Rect2( -2000, -2000, 4000, 4000 )
 local_coords = false
 process_material = SubResource( 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
 
-[node name="BossHp" parent="CanvasLayer" instance=ExtResource( 4 )]
+[node name="BossHp" parent="CanvasLayer2" instance=ExtResource( 4 )]
 mouse_filter = 2
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="Pause" parent="CanvasLayer" instance=ExtResource( 8 )]
+z_index = -1
 
 [node name="Timer" parent="CanvasLayer" instance=ExtResource( 10 )]
 mouse_filter = 2

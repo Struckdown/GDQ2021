@@ -26,14 +26,14 @@ orbit_velocity_random = 0.0
 scale = 2.0
 scale_random = 1.0
 
-[node name="MainLevel2" type="Node2D"]
+[node name="MainLevel3" type="Node2D"]
 script = ExtResource( 6 )
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
 scale = Vector2( 2, 2 )
-healthRef = NodePath("../CanvasLayer/Health")
+healthRef = NodePath("../Other/Health")
 
 [node name="Camera2D" type="Camera2D" parent="Dodo" groups=[
 "Camera",
@@ -52,19 +52,22 @@ visibility_rect = Rect2( -2000, -2000, 4000, 4000 )
 local_coords = false
 process_material = SubResource( 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Boss" type="CanvasLayer" parent="."]
+layer = 0
 
-[node name="BossHp" parent="CanvasLayer" instance=ExtResource( 4 )]
+[node name="BossHp" parent="Boss" instance=ExtResource( 4 )]
 mouse_filter = 2
 
-[node name="Pause" parent="CanvasLayer" instance=ExtResource( 8 )]
+[node name="Other" type="CanvasLayer" parent="."]
 
-[node name="Timer" parent="CanvasLayer" instance=ExtResource( 10 )]
+[node name="Pause" parent="Other" instance=ExtResource( 8 )]
+
+[node name="Timer" parent="Other" instance=ExtResource( 10 )]
 mouse_filter = 2
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Other"]
 
-[node name="Sky" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
+[node name="Sky" type="TextureRect" parent="Other/ParallaxBackground"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 texture = ExtResource( 12 )
@@ -72,7 +75,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Mountains" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
+[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground"]
 margin_left = 2.88342
 margin_top = 439.709
 margin_right = 1919.88
@@ -84,14 +87,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Health" parent="CanvasLayer" instance=ExtResource( 2 )]
+[node name="Health" parent="Other" instance=ExtResource( 2 )]
 margin_left = 0.0
 margin_top = -600.0
 margin_right = 152.0
 margin_bottom = -570.0
 mouse_filter = 2
 
-[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 11 )]
+[node name="GameOver" parent="Other" instance=ExtResource( 11 )]
 margin_right = 1024.0
 mouse_filter = 2
 
@@ -102,7 +105,7 @@ autoplay = true
 [node name="KillerDutchMech" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1132.71, -366.651 )
 z_index = -1
-bossHPRef = NodePath("../CanvasLayer/BossHp")
+bossHPRef = NodePath("../Boss/BossHp")
 
 [connection signal="died" from="Dodo" to="." method="_on_Dodo_died"]
 [connection signal="finished" from="BGM" to="." method="_on_BGM_finished"]

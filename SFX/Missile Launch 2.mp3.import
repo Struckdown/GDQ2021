@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Missile Launch 2.mp3-ecf690c102b328dc2bd4c54e246711c6.mp3str"
+
+[deps]
+
+source_file="res://SFX/Missile Launch 2.mp3"
+dest_files=[ "res://.import/Missile Launch 2.mp3-ecf690c102b328dc2bd4c54e246711c6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

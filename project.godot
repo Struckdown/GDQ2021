@@ -19,6 +19,7 @@ config/icon="res://logo.png"
 [autoload]
 
 SceneTransition="*res://SceneTransition.tscn"
+CameraManager="*res://Scripts/CameraManager.tscn"
 
 [display]
 

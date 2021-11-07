@@ -4,6 +4,7 @@ var playingSong = "intro"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	CameraManager.cameraRef = $Dodo/Camera2D
 	pass # Replace with function body.
 
 

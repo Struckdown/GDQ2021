@@ -4,6 +4,7 @@ export(float) var speed = 300
 export(float) var turnRate = 3
 var target
 var dying = false
+var explosionParticle = preload("res://Mechs/ExplosionParticle.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,7 +48,9 @@ func explode():
 		$ExplosionTimer.start()
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
 		$Sprite.hide()
-	queue_free()
+		var e = explosionParticle.instance()
+		get_viewport().add_child(e)
+		e.global_position = global_position
 
 
 func _on_ExplosionTimer_timeout():

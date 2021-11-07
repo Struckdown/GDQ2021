@@ -30,6 +30,7 @@ scale_random = 1.0
 script = ExtResource( 6 )
 
 [node name="Drone" parent="." instance=ExtResource( 7 )]
+collision_mask = 1
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
 position = Vector2( -2205.9, 372.411 )

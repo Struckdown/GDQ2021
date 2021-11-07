@@ -33,3 +33,7 @@ func reset():
 	start_time = OS.get_ticks_msec()
 	# we can change this later
 	is_paused = false
+
+
+func _on_Shoot_timeout():
+	pass # Replace with function body.

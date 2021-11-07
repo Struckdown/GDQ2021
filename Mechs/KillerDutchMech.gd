@@ -52,7 +52,7 @@ func takeDamage():
 		bossHPRef.setHealth(float(health)/float(maxHealth))
 	bossAggressionMultiplier += .5
 	var i = health + 1
-	$HitSFX.stream = load("res://SFX/Angry Robot " + str(i) + ".mp3")
+	$HitSFX.stream = load("res://SFX/Angry Robot " + str(i+1)  + ".mp3")
 	$HitSFX.play()
 	if health <= 2:
 		$Head.texture = load("res://art/spr_headangry.png")
@@ -76,7 +76,7 @@ func getClosestLauncherToDodo():
 	return closest
 
 func die():
-	for i in range(15):
+	for _i in range(15):
 		var e = explosionParticles.instance()
 		get_viewport().add_child(e)
 		var r = 500 * sqrt(randf())
@@ -87,7 +87,7 @@ func die():
 		e.get_child(0).emitting = true
 		yield(get_tree().create_timer(0.05), "timeout")
 
-func _on_InvulnerableAnimationPlayer_animation_finished(anim_name):
+func _on_InvulnerableAnimationPlayer_animation_finished(_anim_name):
 	invulnerable = false
 	swatHand()
 

@@ -97,7 +97,6 @@ __meta__ = {
 position = Vector2( 515.958, 429.513 )
 scale = Vector2( 2.20263, 2.14316 )
 frames = SubResource( 5 )
-frame = 3
 playing = true
 
 [node name="GameTerrain" type="TileMap" parent="."]
@@ -118,9 +117,9 @@ tile_data = PoolIntArray( 524293, 120, 0, 589842, 122, 0, 720901, 24, 0, 720904,
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
-margin_top = -309.0
+margin_top = -404.326
 margin_right = 208.0
-margin_bottom = -16.0
+margin_bottom = -12.3262
 custom_constants/separation = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -153,10 +152,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="Button" parent="MenuButtons"]
+[node name="Credits" type="Button" parent="MenuButtons"]
 margin_top = 198.0
 margin_right = 193.0
 margin_bottom = 293.0
+grow_horizontal = 2
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="MenuButtons"]
+margin_top = 297.0
+margin_right = 193.0
+margin_bottom = 392.0
 grow_horizontal = 2
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
@@ -248,6 +261,9 @@ stream = ExtResource( 16 )
 [connection signal="focus_entered" from="MenuButtons/Controls" to="." method="_on_Button_focus_entered"]
 [connection signal="mouse_entered" from="MenuButtons/Controls" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="MenuButtons/Controls" to="." method="_on_ControlsButton_pressed"]
+[connection signal="focus_entered" from="MenuButtons/Credits" to="." method="_on_Button_focus_entered"]
+[connection signal="mouse_entered" from="MenuButtons/Credits" to="." method="_on_Button_mouse_entered"]
+[connection signal="pressed" from="MenuButtons/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="mouse_entered" from="MenuButtons/Quit" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="MenuButtons/Quit" to="." method="_on_QuitButton_pressed"]
 [connection signal="focus_entered" from="ControllerConatiner/ControlRect/BackButton" to="." method="_on_Button_focus_entered"]

@@ -33,3 +33,11 @@ func _on_BackButton_pressed():
 	$ControllerConatiner.hide()
 	$MenuButtons.show()
 
+
+
+func _on_Button_focus_entered():
+	$ClickSFX.play()
+
+
+func _on_Button_mouse_entered():
+	$HoverSFX.play()

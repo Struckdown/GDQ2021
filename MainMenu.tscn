@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/controls.png" type="Texture" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Environment/MainLevel.tres" type="TileSet" id=12]
 [ext_resource path="res://art/spr_flagwithpole.png" type="Texture" id=13]
 [ext_resource path="res://Environment/Doodads.tres" type="TileSet" id=14]
+[ext_resource path="res://SFX/Tack 1.mp3" type="AudioStream" id=15]
+[ext_resource path="res://SFX/Flight 3.mp3" type="AudioStream" id=16]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 13 )
@@ -95,7 +97,7 @@ __meta__ = {
 position = Vector2( 515.958, 429.513 )
 scale = Vector2( 2.20263, 2.14316 )
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="GameTerrain" type="TileMap" parent="."]
@@ -234,7 +236,20 @@ visibility_rect = Rect2( -2000, -2000, 4000, 4000 )
 local_coords = false
 process_material = SubResource( 14 )
 
+[node name="ClickSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
+[node name="HoverSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+
+[connection signal="focus_entered" from="MenuButtons/Play" to="." method="_on_Button_focus_entered"]
+[connection signal="mouse_entered" from="MenuButtons/Play" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="MenuButtons/Play" to="." method="_on_PlayButton_pressed"]
+[connection signal="focus_entered" from="MenuButtons/Controls" to="." method="_on_Button_focus_entered"]
+[connection signal="mouse_entered" from="MenuButtons/Controls" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="MenuButtons/Controls" to="." method="_on_ControlsButton_pressed"]
+[connection signal="mouse_entered" from="MenuButtons/Quit" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="MenuButtons/Quit" to="." method="_on_QuitButton_pressed"]
+[connection signal="focus_entered" from="ControllerConatiner/ControlRect/BackButton" to="." method="_on_Button_focus_entered"]
+[connection signal="mouse_entered" from="ControllerConatiner/ControlRect/BackButton" to="." method="_on_Button_mouse_entered"]
 [connection signal="pressed" from="ControllerConatiner/ControlRect/BackButton" to="." method="_on_BackButton_pressed"]

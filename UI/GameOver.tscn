@@ -101,7 +101,7 @@ __meta__ = {
 
 [node name="BackGround" type="TextureRect" parent="."]
 visible = false
-modulate = Color( 0, 0, 0, 0 )
+modulate = Color( 0, 0, 0, 0.555556 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -77.0
@@ -131,7 +131,7 @@ __meta__ = {
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.166667 )
 anchor_right = 1.003
 anchor_bottom = 1.003
 margin_right = -0.0689697

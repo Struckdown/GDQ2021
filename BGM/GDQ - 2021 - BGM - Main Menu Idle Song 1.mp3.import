@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GDQ - 2021 - BGM - Main Menu Idle Song 1.mp3-6f0ed7a4c1def095265061603b31d1ac.mp3str"
+
+[deps]
+
+source_file="res://BGM/GDQ - 2021 - BGM - Main Menu Idle Song 1.mp3"
+dest_files=[ "res://.import/GDQ - 2021 - BGM - Main Menu Idle Song 1.mp3-6f0ed7a4c1def095265061603b31d1ac.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

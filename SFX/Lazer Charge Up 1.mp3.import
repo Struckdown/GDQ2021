@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Lazer Charge Up 1.mp3-d5d4cd227aaa96983e3671acfc599904.mp3str"
+
+[deps]
+
+source_file="res://SFX/Lazer Charge Up 1.mp3"
+dest_files=[ "res://.import/Lazer Charge Up 1.mp3-d5d4cd227aaa96983e3671acfc599904.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

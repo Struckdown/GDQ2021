@@ -25,5 +25,5 @@ func _on_Shoot_timeout():
 	m.speed *= 1
 	var l = self.global_position
 	m.global_position = l
-	m.global_rotation = get_angle_to(get_parent().get_parent().get_node("Dodo").global_position)
+	m.global_rotation = get_angle_to(get_parent().get_parent().get_node("Dodo").global_position) + get_parent().global_rotation
 	

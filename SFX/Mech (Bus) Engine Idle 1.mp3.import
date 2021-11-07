@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Mech (Bus) Engine Idle 1.mp3-8ae00afaf98d18a2f14e10228641df03.mp3str"
+
+[deps]
+
+source_file="res://SFX/Mech (Bus) Engine Idle 1.mp3"
+dest_files=[ "res://.import/Mech (Bus) Engine Idle 1.mp3-8ae00afaf98d18a2f14e10228641df03.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

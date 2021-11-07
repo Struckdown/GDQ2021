@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://art/spr_joints.png" type="Texture" id=1]
 [ext_resource path="res://Mechs/KillerDutchMech.gd" type="Script" id=2]
@@ -6,10 +6,35 @@
 [ext_resource path="res://art/spr_head.png" type="Texture" id=4]
 [ext_resource path="res://art/spr_body.png" type="Texture" id=5]
 [ext_resource path="res://art/spr_hands.png" type="Texture" id=6]
+[ext_resource path="res://art/spr_smokecloud.png" type="Texture" id=7]
+
+[sub_resource type="Gradient" id=11]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+
+[sub_resource type="Curve" id=13]
+max_value = 3.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.997126, 3 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale_random = 1.0
+scale_curve = SubResource( 14 )
+color_ramp = SubResource( 12 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "batLHand"
-length = 1.2
+length = 2.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("UpperArmL/ArmL/HandL:rotation_degrees")
 tracks/0/interp = 1
@@ -17,10 +42,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.4, 0.8, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -11.6579, 18.9978, 7.72485 ]
+"values": [ 36.8489, -11.6579, 18.9978, 7.72485, 36.8489 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("UpperArmL/ArmL:rotation_degrees")
@@ -29,10 +54,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.4, 0.8, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -424.074, -545.315, -545.429 ]
+"values": [ -406.633, -424.074, -545.315, -545.429, -406.633 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("UpperArmL:rotation_degrees")
@@ -41,10 +66,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.4, 0.8, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 93.014, 69.2846, 14.9413 ]
+"values": [ -2.42474, 93.014, 69.2846, 14.9413, -2.42474 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -382,7 +407,7 @@ graph_offset = Vector2( -363.081, -100.508 )
 position = Vector2( 1.41418, 0 )
 scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
-missileLaunchers = [ NodePath("UpperArmL/ArmL/HandL"), NodePath("UpperArmR/ArmR/HandR") ]
+missileLaunchers = [ NodePath("UpperArmL/ArmL/HandL/Position2D"), NodePath("UpperArmR/ArmR/HandR/Position2D") ]
 
 [node name="Body" type="Sprite" parent="."]
 position = Vector2( 0, -2.81441 )
@@ -401,7 +426,7 @@ polygon = PoolVector2Array( -1.21788, -68.4254, 72.719, -58.6721, 96.0012, -42.9
 
 [node name="UpperArmL" type="Sprite" parent="."]
 position = Vector2( -116.179, -88.1709 )
-rotation = 0.250141
+rotation = 0.199269
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -413,7 +438,7 @@ __meta__ = {
 
 [node name="ArmL" type="Sprite" parent="UpperArmL"]
 position = Vector2( -0.748195, 137.689 )
-rotation = -7.81568
+rotation = -7.69068
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -423,7 +448,7 @@ __meta__ = {
 
 [node name="HandL" type="Sprite" parent="UpperArmL/ArmL"]
 position = Vector2( 0.587658, -138.431 )
-rotation = 1.07204
+rotation = 0.997433
 texture = ExtResource( 6 )
 offset = Vector2( 2.26794, -65.4607 )
 hframes = 2
@@ -431,9 +456,21 @@ __meta__ = {
 "_edit_bone_": true
 }
 
+[node name="Position2D" type="Position2D" parent="UpperArmL/ArmL/HandL"]
+position = Vector2( 14.1172, -42.7116 )
+
+[node name="Particles2D" type="Particles2D" parent="UpperArmL/ArmL/HandL/Position2D"]
+emitting = false
+amount = 2
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource( 15 )
+texture = ExtResource( 7 )
+
 [node name="UpperArmR" type="Sprite" parent="."]
 position = Vector2( 109.81, -88.1709 )
-rotation = -0.0522719
+rotation = -0.0352719
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -444,7 +481,7 @@ __meta__ = {
 
 [node name="ArmR" type="Sprite" parent="UpperArmR"]
 position = Vector2( -0.748195, 137.689 )
-rotation = 1.41737
+rotation = 1.33396
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -455,7 +492,7 @@ __meta__ = {
 
 [node name="HandR" type="Sprite" parent="UpperArmR/ArmR"]
 position = Vector2( 2.1962, -144.387 )
-rotation = -0.917551
+rotation = -0.85162
 texture = ExtResource( 6 )
 offset = Vector2( -5.76402, -58.4693 )
 hframes = 2
@@ -463,6 +500,9 @@ frame = 1
 __meta__ = {
 "_edit_bone_": true
 }
+
+[node name="Position2D" type="Position2D" parent="UpperArmR/ArmR/HandR"]
+position = Vector2( -16.7871, -36.792 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/batLHand = SubResource( 3 )

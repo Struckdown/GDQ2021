@@ -11,5 +11,5 @@ dest_files=[ "res://.import/GDQ - 2021 - BGM - Death Music 1.mp3-6def52d4040a755
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

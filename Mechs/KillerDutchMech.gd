@@ -17,7 +17,7 @@ var bossAggressionMultiplier = 1
 var explosionParticles = preload("res://Mechs/ExplosionParticle.tscn")
 export(String, "missiles", "bombs") var state = "missiles"
 
-var swatCooldownMax = 15
+export(float) var swatCooldownMax = 15.0
 var swatCooldown = 0
 export(bool) var handsCanHurt = false
 
@@ -137,6 +137,7 @@ func activeBombManager():
 func _on_AboveHeadArea_body_entered(body):
 	if body.is_in_group("Player") and swatCooldown <= 0:
 		$AnimationTree.get("parameters/playback").travel("SwatHead")
+		swatCooldown = swatCooldownMax
 
 
 func _on_HurtBoxHand_body_entered(body):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://health.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Mechs/BossHp.tscn" type="PackedScene" id=4]
 [ext_resource path="res://BGM/GDQ - 2021 - BGM Phase 1 - Intro.mp3" type="AudioStream" id=5]
 [ext_resource path="res://MainLevel.gd" type="Script" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://WorkingPauseMenu.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Mechs/KillerDutchMech.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Shoot.gd" type="Script" id=9]
 [ext_resource path="res://Timer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UI/GameOver.tscn" type="PackedScene" id=11]
 [ext_resource path="res://art/spr_sky.png" type="Texture" id=12]
@@ -26,18 +27,20 @@ orbit_velocity_random = 0.0
 scale = 2.0
 scale_random = 1.0
 
-[node name="MainLevel3" type="Node2D"]
+[sub_resource type="PhysicsMaterial" id=2]
+
+[node name="MainLevel2" type="Node2D"]
 script = ExtResource( 6 )
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
+light_mask = 5
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
+position = Vector2( -120, 0 )
 scale = Vector2( 2, 2 )
-healthRef = NodePath("../Other/Health")
+healthRef = NodePath("../CanvasLayer/Health")
 
-[node name="Camera2D" type="Camera2D" parent="Dodo" groups=[
-"Camera",
-]]
+[node name="Camera2D" type="Camera2D" parent="Dodo"]
 current = true
 zoom = Vector2( 1.5, 1.5 )
 smoothing_enabled = true
@@ -52,22 +55,23 @@ visibility_rect = Rect2( -2000, -2000, 4000, 4000 )
 local_coords = false
 process_material = SubResource( 1 )
 
-[node name="Boss" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="BossHp" parent="Boss" instance=ExtResource( 4 )]
+[node name="BossHp" parent="CanvasLayer2" instance=ExtResource( 4 )]
 mouse_filter = 2
 
-[node name="Other" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Pause" parent="Other" instance=ExtResource( 8 )]
+[node name="Pause" parent="CanvasLayer" instance=ExtResource( 8 )]
+z_index = -1
 
-[node name="Timer" parent="Other" instance=ExtResource( 10 )]
+[node name="Timer" parent="CanvasLayer" instance=ExtResource( 10 )]
 mouse_filter = 2
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Other"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
-[node name="Sky" type="TextureRect" parent="Other/ParallaxBackground"]
+[node name="Sky" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 texture = ExtResource( 12 )
@@ -75,7 +79,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground"]
+[node name="Mountains" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
 margin_left = 2.88342
 margin_top = 439.709
 margin_right = 1919.88
@@ -87,14 +91,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Health" parent="Other" instance=ExtResource( 2 )]
+[node name="Health" parent="CanvasLayer" instance=ExtResource( 2 )]
 margin_left = 0.0
 margin_top = -600.0
 margin_right = 152.0
 margin_bottom = -570.0
 mouse_filter = 2
 
-[node name="GameOver" parent="Other" instance=ExtResource( 11 )]
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource( 11 )]
 margin_right = 1024.0
 mouse_filter = 2
 
@@ -102,10 +106,41 @@ mouse_filter = 2
 stream = ExtResource( 5 )
 autoplay = true
 
-[node name="KillerDutchMech" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1132.71, -366.651 )
-z_index = -1
-bossHPRef = NodePath("../Boss/BossHp")
+[node name="Drone" type="RigidBody2D" parent="."]
+light_mask = 9
+collision_layer = 9
+collision_mask = 9
+mode = 1
+mass = 5.0
+physics_material_override = SubResource( 2 )
+gravity_scale = 3.0
+
+[node name="Sprite" type="Sprite" parent="Drone"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+script = ExtResource( 9 )
+
+[node name="rays" type="Node2D" parent="Drone"]
+
+[node name="RayCast2D2" type="RayCast2D" parent="Drone/rays"]
+cast_to = Vector2( 0, -50 )
+collision_mask = 524289
+
+[node name="RayCast2D" type="RayCast2D" parent="Drone/rays"]
+collision_mask = 524289
+
+[node name="RayCast2D3" type="RayCast2D" parent="Drone/rays"]
+cast_to = Vector2( 50, 0 )
+collision_mask = 524289
+
+[node name="RayCast2D4" type="RayCast2D" parent="Drone/rays"]
+cast_to = Vector2( -50, 0 )
+collision_mask = 524289
+
+[node name="Shoot" type="Timer" parent="Drone"]
+wait_time = 3.0
+autostart = true
 
 [connection signal="died" from="Dodo" to="." method="_on_Dodo_died"]
 [connection signal="finished" from="BGM" to="." method="_on_BGM_finished"]
+[connection signal="timeout" from="Drone/Shoot" to="Drone/Sprite" method="_on_Shoot_timeout"]

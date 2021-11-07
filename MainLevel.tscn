@@ -87,6 +87,7 @@ margin_left = 9.01019
 margin_top = 102.0
 margin_right = -790.99
 margin_bottom = -482.0
+mouse_filter = 2
 value = 100.0
 
 [node name="GameOver" parent="Other" instance=ExtResource( 11 )]

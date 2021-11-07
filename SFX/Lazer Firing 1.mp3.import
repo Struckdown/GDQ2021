@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Lazer Firing 1.mp3-4a31a2966e941c5e906540b9f3366d72.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

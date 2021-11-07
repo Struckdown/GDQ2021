@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Lazer Charge Up 1.mp3-d5d4cd227aaa96983e3671acfc5999
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

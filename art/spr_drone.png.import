@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spr_deaddodo.png-026799ef39c833c45946a1d8f8d846fd.stex"
+path="res://.import/spr_drone.png-5535b9463977c05ba65e1170c13f4d80.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/spr_deaddodo.png"
-dest_files=[ "res://.import/spr_deaddodo.png-026799ef39c833c45946a1d8f8d846fd.stex" ]
+source_file="res://art/spr_drone.png"
+dest_files=[ "res://.import/spr_drone.png-5535b9463977c05ba65e1170c13f4d80.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

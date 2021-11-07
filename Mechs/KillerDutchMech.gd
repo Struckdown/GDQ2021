@@ -30,23 +30,17 @@ func move(delta):
 
 func _on_MissileLauncherTimer_timeout():
 	if state == "missiles":
-		fireMissile()
+		$AnimationTree.get("parameters/playback").travel("FireMissile")
 
 func fireMissile():
 	var l = getClosestLauncherToDodo()
-	$UpperArmL/ArmL/HandL.texture = load("res://art/spr_handspoint.png")
-	$UpperArmR/ArmR/HandR.texture = load("res://art/spr_handspoint.png")
-	yield(get_tree().create_timer(1), "timeout")
 	var m = missile.instance()
 	get_viewport().add_child(m)
 	m.speed *= bossAggressionMultiplier
 	m.global_position = l.global_position
-	m.global_rotation = l.global_rotation
+	m.global_rotation = l.get_angle_to(dodo.global_position)
 	l.get_child(0).emitting = true
-	yield(get_tree().create_timer(0.4), "timeout")
 	$MissileLaunchedSFX.play()
-	$UpperArmL/ArmL/HandL.texture = load("res://art/spr_hands.png")
-	$UpperArmR/ArmR/HandR.texture = load("res://art/spr_hands.png")
 
 
 func takeDamage():
@@ -127,3 +121,4 @@ func _on_PhaseTimer_timeout():
 			$AnimationTree.get("parameters/playback").travel("FireBombsUpwards")
 		"bombs":
 			state = "missiles"
+

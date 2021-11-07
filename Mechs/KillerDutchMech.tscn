@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://art/spr_joints.png" type="Texture" id=1]
 [ext_resource path="res://Mechs/KillerDutchMech.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://art/spr_smokecloud.png" type="Texture" id=7]
 [ext_resource path="res://SFX/Missile Launch 1.mp3" type="AudioStream" id=8]
 [ext_resource path="res://art/spr_handspointout.png" type="Texture" id=9]
+[ext_resource path="res://art/spr_handspoint.png" type="Texture" id=10]
 
 [sub_resource type="Gradient" id=20]
 offsets = PoolRealArray( 0, 0.523077, 1 )
@@ -217,6 +218,123 @@ tracks/8/keys = {
 }, {
 "args": [ false ],
 "method": "fireBombs"
+} ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "FireMissile"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("UpperArmL/ArmL/HandL:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 36.8489, 47.2953, 36.8489 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("UpperArmL/ArmL:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -406.633, -483.749, -406.633 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("UpperArmL:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -2.42474, 64.3955, -2.42474 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("UpperArmR/ArmR/HandR:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -30.8545, -37.1466, -30.8545 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("UpperArmR/ArmR:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 53.7334, 134.478, 53.7334 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("UpperArmR:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 2.60472, -71.4747, 2.60472 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("UpperArmR/ArmR/HandR:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 6 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("UpperArmL/ArmL/HandL:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 6 ) ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 1.2, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "fireMissile"
+}, {
+"args": [  ],
+"method": "fireMissile"
 } ]
 }
 
@@ -592,6 +710,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationNodeAnimation" id=16]
 animation = "FireBombsUpwards"
 
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "FireMissile"
+
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "batLHand"
 
@@ -610,16 +731,24 @@ auto_advance = true
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachine" id=13]
 states/FireBombsUpwards/node = SubResource( 16 )
 states/FireBombsUpwards/position = Vector2( 187.919, 157.492 )
+states/FireMissile/node = SubResource( 25 )
+states/FireMissile/position = Vector2( -88.081, 60.492 )
 states/batLHand/node = SubResource( 9 )
 states/batLHand/position = Vector2( 636, 45 )
 states/rest/node = SubResource( 10 )
 states/rest/position = Vector2( 176, 29 )
-transitions = [ "rest", "batLHand", SubResource( 11 ), "batLHand", "rest", SubResource( 12 ), "rest", "FireBombsUpwards", SubResource( 17 ), "FireBombsUpwards", "rest", SubResource( 18 ) ]
+transitions = [ "rest", "batLHand", SubResource( 11 ), "batLHand", "rest", SubResource( 12 ), "rest", "FireBombsUpwards", SubResource( 17 ), "FireBombsUpwards", "rest", SubResource( 18 ), "rest", "FireMissile", SubResource( 26 ), "FireMissile", "rest", SubResource( 27 ) ]
 start_node = "rest"
-graph_offset = Vector2( -363.081, -100.508 )
+graph_offset = Vector2( -620.673, -35.74 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=14]
 
@@ -651,7 +780,7 @@ polygon = PoolVector2Array( -1.21788, -68.4254, 72.719, -58.6721, 96.0012, -42.9
 
 [node name="UpperArmL" type="Sprite" parent="."]
 position = Vector2( -116.179, -88.1709 )
-rotation = -0.0320676
+rotation = -0.0111242
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -663,7 +792,7 @@ __meta__ = {
 
 [node name="ArmL" type="Sprite" parent="UpperArmL"]
 position = Vector2( -0.748195, 137.689 )
-rotation = -7.12227
+rotation = -7.17373
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -673,7 +802,7 @@ __meta__ = {
 
 [node name="HandL" type="Sprite" parent="UpperArmL/ArmL"]
 position = Vector2( 0.587658, -138.431 )
-rotation = 0.65817
+rotation = 0.688884
 texture = ExtResource( 6 )
 offset = Vector2( 2.26794, -65.4607 )
 hframes = 2
@@ -708,7 +837,7 @@ texture = ExtResource( 7 )
 
 [node name="UpperArmR" type="Sprite" parent="."]
 position = Vector2( 109.81, -88.1709 )
-rotation = 0.0420349
+rotation = 0.0350362
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -719,7 +848,7 @@ __meta__ = {
 
 [node name="ArmR" type="Sprite" parent="UpperArmR"]
 position = Vector2( -0.748195, 137.689 )
-rotation = 0.954635
+rotation = 0.988976
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -730,7 +859,7 @@ __meta__ = {
 
 [node name="HandR" type="Sprite" parent="UpperArmR/ArmR"]
 position = Vector2( 2.1962, -144.387 )
-rotation = -0.5518
+rotation = -0.578943
 texture = ExtResource( 6 )
 offset = Vector2( -5.76402, -58.4693 )
 hframes = 2
@@ -753,6 +882,7 @@ texture = ExtResource( 7 )
 
 [node name="Position2DFinger" type="Position2D" parent="UpperArmR/ArmR/HandR"]
 position = Vector2( -17.5903, -127.078 )
+rotation = -1.75905
 
 [node name="Particles2D2" type="Particles2D" parent="UpperArmR/ArmR/HandR/Position2DFinger"]
 rotation = -1.5708
@@ -766,6 +896,7 @@ texture = ExtResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FireBombsUpwards = SubResource( 15 )
+anims/FireMissile = SubResource( 24 )
 anims/batLHand = SubResource( 6 )
 anims/rest = SubResource( 7 )
 

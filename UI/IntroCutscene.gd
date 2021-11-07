@@ -7,6 +7,7 @@ export(String) var songToRequest = "res://BGM/GDQ - 2021 - BGM Phase 1 - End 2.m
 func _ready():
 	if songToRequest:
 		BGM.requestSong(songToRequest, 0.2, 0.2)
+		BGM.shouldLoop = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

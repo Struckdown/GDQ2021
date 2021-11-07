@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://art/spr_largelazers.png" type="Texture" id=1]
 [ext_resource path="res://Projectiles/Missile.gd" type="Script" id=2]
 [ext_resource path="res://SFX/Lazer Firing 1.mp3" type="AudioStream" id=3]
+[ext_resource path="res://SFX/Fwsh 1.mp3" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 51.6763, 2.92369 )
@@ -31,6 +32,7 @@ speed = 1200.0
 turnRate = 0.0
 shouldTrack = false
 explodes = false
+hasSpawnSFX = true
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -1.57079
@@ -56,6 +58,11 @@ max_distance = 3000.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fly"
 anims/fly = SubResource( 2 )
+
+[node name="SpawnSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+pitch_scale = 2.46
+attenuation = 0.68302
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]

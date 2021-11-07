@@ -5,6 +5,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	BGM.requestSong("res://BGM/GDQ - 2021 - BGM - Main Menu Idle Song 1.mp3")
+	BGM.shouldLoop = true
 	$ControllerConatiner.hide()
 
 

@@ -4,6 +4,7 @@ var curSong = null
 var fadingOut = false
 var fadeOutTime = 1
 var fadeInTime = 0.7
+var shouldLoop = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,4 +48,5 @@ func switchTracks():
 
 
 func _on_BGM_finished():
-	play()
+	if shouldLoop:
+		play()

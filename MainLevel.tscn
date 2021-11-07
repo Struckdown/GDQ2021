@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://health.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://UI/GameOver.tscn" type="PackedScene" id=11]
 [ext_resource path="res://art/spr_sky.png" type="Texture" id=12]
 [ext_resource path="res://art/spr_mountains.png" type="Texture" id=13]
+[ext_resource path="res://Drone.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -38,6 +39,9 @@ outlines = [ PoolVector2Array( -1803.52, -810.13, 1942.75, -940.297, 1780.84, 49
 script = ExtResource( 6 )
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
+
+[node name="Drone" parent="." instance=ExtResource( 14 )]
+position = Vector2( -1850.11, -158.909 )
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
 position = Vector2( -2059.1, 11.3137 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://health.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Mechs/BossHp.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Projectiles/RainingBombsManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MainLevel.gd" type="Script" id=6]
+[ext_resource path="res://UI/StaminaBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://WorkingPauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mechs/KillerDutchMech.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Timer.tscn" type="PackedScene" id=10]
@@ -130,6 +131,8 @@ stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="StaminaBar" parent="Other" instance=ExtResource( 7 )]
 
 [node name="KillerDutchMech" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1132.71, -366.651 )

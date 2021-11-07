@@ -113,7 +113,8 @@ __meta__ = {
 }
 
 [node name="BackGround" type="TextureRect" parent="."]
-modulate = Color( 0, 0, 0, 1 )
+visible = false
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -77.0
@@ -129,6 +130,7 @@ __meta__ = {
 }
 
 [node name="DeadTurkey" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -77.0
@@ -144,6 +146,7 @@ __meta__ = {
 }
 
 [node name="RestartLbl" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 423.0
 margin_top = 335.735
 margin_right = 603.0
@@ -156,6 +159,7 @@ __meta__ = {
 }
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
 anchor_right = 1.003
 anchor_bottom = 1.003
 margin_right = -0.0689697

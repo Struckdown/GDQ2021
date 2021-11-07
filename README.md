@@ -4,11 +4,11 @@
 
 As the last dodo you must 
 
-## Screenshot
+## Screenshots 📷
 
 
 
-## About
+## About 🔴
 
 A game made for the Games Den Quick 2021 Game Jam
 
@@ -30,6 +30,6 @@ Made with Godot :heart:
 
 
 
-## License
+## License 📜
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 

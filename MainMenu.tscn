@@ -16,22 +16,18 @@
 [ext_resource path="res://Environment/Doodads.tres" type="TileSet" id=14]
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 0, 0, 37, 53 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 37, 0, 37, 53 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 74, 0, 37, 53 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 111, 0, 37, 53 )
 
@@ -99,6 +95,7 @@ __meta__ = {
 position = Vector2( 515.958, 429.513 )
 scale = Vector2( 2.20263, 2.14316 )
 frames = SubResource( 5 )
+frame = 3
 playing = true
 
 [node name="GameTerrain" type="TileMap" parent="."]

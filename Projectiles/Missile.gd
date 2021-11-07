@@ -39,7 +39,7 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Lifetime_timeout():
-	explode()
+	$TimeoutAnimPlayer.play("Timeout")
 
 func explode():
 	if not dying:
@@ -55,3 +55,7 @@ func explode():
 
 func _on_ExplosionTimer_timeout():
 	queue_free()
+
+
+func _on_TimeoutAnimPlayer_animation_finished(anim_name):
+	explode()

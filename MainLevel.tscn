@@ -148,3 +148,4 @@ navpoly = SubResource( 2 )
 
 [connection signal="died" from="Dodo" to="." method="_on_Dodo_died"]
 [connection signal="gameOver" from="Other/GameOver" to="." method="_on_GameOver_gameOver"]
+[connection signal="died" from="KillerDutchMech" to="." method="_on_KillerDutchMech_died"]

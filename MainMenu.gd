@@ -1,13 +1,10 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	BGM.requestSong("res://BGM/GDQ - 2021 - BGM - Main Menu Idle Song 1.mp3")
 	$ControllerConatiner.hide()
 
 
@@ -20,7 +17,7 @@ func _input(event):
 		$MenuButtons.show()
 
 func _on_PlayButton_pressed():
-	SceneTransition.transitionTo("res://MainLevel.tscn")
+	SceneTransition.transitionTo("res://UI/IntroCutscene.tscn")
 
 func _on_QuitButton_pressed():
 	get_tree().quit()

@@ -32,3 +32,7 @@ func _on_Dodo_died():
 
 func _on_GameOver_gameOver():
 	$"Other/Pause/Pause/Pause Menu".pausingAllowed = false
+
+
+func _on_KillerDutchMech_died():
+	SceneTransition.transitionTo("res://UI/VictoryCutscene.tscn")

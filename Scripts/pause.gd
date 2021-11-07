@@ -22,10 +22,16 @@ func _input(event):
 
 
 func _on_resume_pressed():
+	$ClickSFX.play()
 	var is_paused = not get_tree().paused
 	get_tree().paused = is_paused
 	visible = is_paused
 
 
 func _on_quit_pressed():
+	$ClickSFX.play()
 	get_tree().quit()
+
+
+func _on_Button_mouse_entered():
+	$HoverSFX.play()

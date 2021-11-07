@@ -1,8 +1,13 @@
 # The Last Dodo
 
-![icon](art/icon.png)
+![cover art](art/cover art.png)
 
-As the last dodo you must 
+The Dutch Killer Robot is coming for you, the last dodo. You must dash to survive!
+
+## Controls
+
+* Arrow keys to move
+* Shift to **dash**
 
 ## Screenshots 📷
 

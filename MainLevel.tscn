@@ -43,6 +43,7 @@ script = ExtResource( 6 )
 position = Vector2( -2059.1, 11.3137 )
 scale = Vector2( 2, 2 )
 healthRef = NodePath("../Other/Health")
+staminaRef = NodePath("../Other/StaminaBar")
 
 [node name="Camera2D" type="Camera2D" parent="Dodo" groups=[
 "Camera",
@@ -80,6 +81,13 @@ margin_top = -600.0
 margin_right = 152.0
 margin_bottom = -570.0
 mouse_filter = 2
+
+[node name="StaminaBar" parent="Other" instance=ExtResource( 7 )]
+margin_left = 9.01019
+margin_top = 102.0
+margin_right = -790.99
+margin_bottom = -482.0
+value = 100.0
 
 [node name="GameOver" parent="Other" instance=ExtResource( 11 )]
 margin_right = 1024.0
@@ -131,8 +139,6 @@ stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="StaminaBar" parent="Other" instance=ExtResource( 7 )]
 
 [node name="KillerDutchMech" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1132.71, -366.651 )

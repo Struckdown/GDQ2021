@@ -19,9 +19,16 @@ var timeSinceLastOnFloor = 0
 export(float) var coyoteTime = 0.15	# how much time can still jump while not on floor since last on floor
 var health = 3
 export(NodePath) onready var healthRef = get_node(healthRef)
+export(NodePath) onready var staminaRef = get_node(staminaRef)
+export(float) var stamina = 100.0
+export(float) var staminaMax = 100.0
+export(float) var staminaRechargeRate = 25.0
+export(float) var dashCost = 15
 signal died
 var playerHasControl = true
 var invulnerable = false
+var canRechargeStamina = true
+var deadTurkeyTexture = preload("res://art/spr_realturkey.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,6 +39,7 @@ func _ready():
 func _physics_process(delta):
 	determineInputs()
 	applyMovement(delta)
+	rechargeStamina(delta)
 
 func determineInputs():
 	if not playerHasControl:
@@ -55,13 +63,9 @@ func applyMovement(delta):
 	else:
 		updateAnim("idle")
 
+	
 	if dashRequested:
-		$DashSFX.play()
-		if heldDirections[0] == 0 and heldDirections[1] == 0:
-			heldDirections[0] = facingRight
-		velocity = heldDirections * dashSpeed
-		dashTimeLeft = dashTimeCap
-		wasDashing = true
+		attemptDash()
 	if dashTimeLeft > 0:
 		pass
 	else:
@@ -81,6 +85,18 @@ func applyMovement(delta):
 		timeSinceLastOnFloor += delta
 	dashTimeLeft -= delta
 
+func attemptDash():
+	if stamina <= dashCost:
+		return
+	consumeStamina(dashCost)
+	canRechargeStamina = false
+	$StaminaRechargeTimer.start()
+	$DashSFX.play()
+	if heldDirections[0] == 0 and heldDirections[1] == 0:
+		heldDirections[0] = facingRight
+	velocity = heldDirections * dashSpeed
+	dashTimeLeft = dashTimeCap
+	wasDashing = true
 
 func updateAnim(newAnim):
 	if newAnim == anim:
@@ -107,7 +123,7 @@ func takeDamage():
 		playerHasControl = false
 		emit_signal("died")
 		$HurtSFX.stream = load("res://SFX/Dodo Dead Noise 1.mp3")
-		$Sprite.texture = load("res://art/spr_realturkey.png")
+		$Sprite.texture = deadTurkeyTexture
 		$Sprite.hframes = 1
 		$Sprite.scale = Vector2(0.5, 0.5)
 	$HurtSFX.play()
@@ -119,3 +135,20 @@ func _on_InvulnerabilityPlayer_animation_finished(_anim_name):
 func _on_RandomDodoNoiseTimer_timeout():
 	$RandomDodoSFX.stream = load("res://SFX/Bird Noise " + str(randi()%3+1) +".mp3")
 	$RandomDodoSFX.play()
+
+func consumeStamina(cost):
+	stamina -= cost
+	updateStaminaVisuals()
+
+func updateStaminaVisuals():
+	staminaRef.value = (stamina / staminaMax)*100
+
+
+func _on_StaminaRechargeTimer_timeout():
+	canRechargeStamina = true
+
+func rechargeStamina(delta):
+	if canRechargeStamina:
+		stamina = min(stamina+delta*staminaRechargeRate, staminaMax)
+		updateStaminaVisuals()
+		

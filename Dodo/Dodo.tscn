@@ -184,5 +184,8 @@ autostart = true
 stream = ExtResource( 7 )
 volume_db = 20.0
 
+[node name="StaminaRechargeTimer" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="InvulnerabilityPlayer" to="." method="_on_InvulnerabilityPlayer_animation_finished"]
 [connection signal="timeout" from="RandomDodoSFX/RandomDodoNoiseTimer" to="." method="_on_RandomDodoNoiseTimer_timeout"]
+[connection signal="timeout" from="StaminaRechargeTimer" to="." method="_on_StaminaRechargeTimer_timeout"]

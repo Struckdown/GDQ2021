@@ -73,8 +73,13 @@ position = Vector2( 307.698, 83.2515 )
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
 position = Vector2( -2059.1, 11.3137 )
 scale = Vector2( 2, 2 )
+dashTimeCap = 0.28
+dashSpeed = 1000.0
 healthRef = NodePath("../Other/Health")
 staminaRef = NodePath("../Other/StaminaBar")
+stamina = 150.0
+staminaMax = 150.0
+staminaRechargeRate = 30.0
 
 [node name="Camera2D" type="Camera2D" parent="Dodo" groups=[
 "Camera",

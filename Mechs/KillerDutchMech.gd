@@ -8,7 +8,7 @@ export(NodePath) onready var bossHPRef = get_node(bossHPRef)
 var dodo
 export(Array, NodePath) var missileLaunchers
 var invulnerable = false
-
+#var state_machine = $AnimationTree["parameters/playback"]
 var bossAggressionMultiplier = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -64,3 +64,8 @@ func getClosestLauncherToDodo():
 
 func _on_InvulnerableAnimationPlayer_animation_finished(anim_name):
 	invulnerable = false
+	swatHand()
+
+func swatHand():
+	$AnimationTree.get("parameters/playback").travel("batLHand")
+

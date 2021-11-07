@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GDQ - 2021 - BGM Phase 2 - Intro.mp3-3b0df0e150689e2919ba5f951a3a52b7.mp3str"
+
+[deps]
+
+source_file="res://BGM/GDQ - 2021 - BGM Phase 2 - Intro.mp3"
+dest_files=[ "res://.import/GDQ - 2021 - BGM Phase 2 - Intro.mp3-3b0df0e150689e2919ba5f951a3a52b7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

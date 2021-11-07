@@ -13,7 +13,7 @@
 [ext_resource path="res://UI/GameOver.tscn" type="PackedScene" id=11]
 [ext_resource path="res://art/spr_sky.png" type="Texture" id=12]
 [ext_resource path="res://art/spr_mountains.png" type="Texture" id=13]
-[ext_resource path="res://Drone.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/DroneSpawn.gd" type="Script" id=15]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -40,8 +40,35 @@ script = ExtResource( 6 )
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
 
-[node name="Drone" parent="." instance=ExtResource( 14 )]
-position = Vector2( -1850.11, -158.909 )
+[node name="DroneSpawn" type="Node2D" parent="."]
+script = ExtResource( 15 )
+
+[node name="Spawn Drone" type="Timer" parent="DroneSpawn"]
+wait_time = 12.0
+autostart = true
+
+[node name="positions" type="Node2D" parent="DroneSpawn"]
+
+[node name="Position2D" type="Position2D" parent="DroneSpawn/positions"]
+position = Vector2( -2023.67, 868.365 )
+
+[node name="Position2D2" type="Position2D" parent="DroneSpawn/positions"]
+position = Vector2( -2503.13, -228.396 )
+
+[node name="Position2D3" type="Position2D" parent="DroneSpawn/positions"]
+position = Vector2( 409.584, 940.283 )
+
+[node name="Position2D4" type="Position2D" parent="DroneSpawn/positions"]
+position = Vector2( 2321.42, 712.54 )
+
+[node name="Position2D5" type="Position2D" parent="DroneSpawn/positions"]
+position = Vector2( 2375.36, -198.43 )
+
+[node name="Position2D6" type="Position2D" parent="DroneSpawn/positions"]
+position = Vector2( -45.9021, -1558.89 )
+
+[node name="Position2D7" type="Position2D" parent="DroneSpawn/positions"]
+position = Vector2( 307.698, 83.2515 )
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
 position = Vector2( -2059.1, 11.3137 )
@@ -160,6 +187,7 @@ bombsManager = NodePath("../RainingBombsManager")
 position = Vector2( 2.11896, 0 )
 navpoly = SubResource( 2 )
 
+[connection signal="timeout" from="DroneSpawn/Spawn Drone" to="DroneSpawn" method="_on_Spawn_Drone_timeout"]
 [connection signal="died" from="Dodo" to="." method="_on_Dodo_died"]
 [connection signal="gameOver" from="Other/GameOver" to="." method="_on_GameOver_gameOver"]
 [connection signal="died" from="KillerDutchMech" to="." method="_on_KillerDutchMech_died"]

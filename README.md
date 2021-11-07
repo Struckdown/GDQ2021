@@ -1,6 +1,6 @@
 # The Last Dodo
 
-![cover art](art/cover art.png)
+![cover art](art/cover%20art.png)
 
 The Dutch Killer Robot is coming for you, the last dodo. You must dash to survive!
 

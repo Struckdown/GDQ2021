@@ -22,6 +22,7 @@ var swatCooldown = 0
 export(bool) var handsCanHurt = false
 var levelRef
 
+signal died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -96,6 +97,7 @@ func die():
 		e.emitting = true
 		e.get_child(0).emitting = true
 		yield(get_tree().create_timer(0.05), "timeout")
+	emit_signal("died")
 
 func _on_InvulnerableAnimationPlayer_animation_finished(_anim_name):
 	invulnerable = false

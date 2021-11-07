@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/spr_endcutscene.png" type="Texture" id=1]
+[ext_resource path="res://UI/IntroCutscene.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "IntroCutscene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 0.840896 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+
+[node name="VictoryCutscene" type="Node2D"]
+script = ExtResource( 4 )
+levelToTransitionTo = "res://MainMenu.tscn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "IntroCutscene"
+anims/IntroCutscene = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="Sprite"]
+current = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://UI/GameOver.gd" type="Script" id=2]
+[ext_resource path="res://art/spr_deaddodo.png" type="Texture" id=3]
 [ext_resource path="res://Font/times-new-roman.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://BGM/GDQ - 2021 - BGM - Death Music 1.mp3" type="AudioStream" id=5]
 
@@ -89,6 +90,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("../DeadTurkey:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 4, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="GameOver" type="Control"]
 pause_mode = 2
@@ -116,6 +129,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DeadTurkey" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -77.0
+margin_top = -61.0
+margin_right = 65.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="RestartLbl" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 423.0
@@ -131,7 +160,6 @@ __meta__ = {
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0.458333 )
 anchor_right = 1.003
 anchor_bottom = 1.003
 margin_right = -0.0689697

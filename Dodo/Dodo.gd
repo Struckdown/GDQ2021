@@ -28,7 +28,7 @@ signal died
 var playerHasControl = true
 var invulnerable = false
 var canRechargeStamina = true
-
+var deadTurkeyTexture = preload("res://art/spr_realturkey.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -123,7 +123,7 @@ func takeDamage():
 		playerHasControl = false
 		emit_signal("died")
 		$HurtSFX.stream = load("res://SFX/Dodo Dead Noise 1.mp3")
-		$Sprite.texture = load("res://art/spr_realturkey.png")
+		$Sprite.texture = deadTurkeyTexture
 		$Sprite.hframes = 1
 		$Sprite.scale = Vector2(0.5, 0.5)
 	$HurtSFX.play()

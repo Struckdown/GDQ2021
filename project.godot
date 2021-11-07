@@ -10,8 +10,9 @@ config_version=4
 
 [application]
 
-config/name="GDQ 2021"
-config/description="A Sphere Factor Production"
+config/name="The Last Dodo"
+config/description="A Sphere Factor Production
+"
 run/main_scene="res://MainMenu.tscn"
 boot_splash/image="res://logo.png"
 config/icon="res://logo.png"

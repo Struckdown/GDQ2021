@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://UI/GameOver.gd" type="Script" id=2]
@@ -6,12 +6,15 @@
 [ext_resource path="res://Font/times-new-roman.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 48
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "display"
-length = 4.0
+[sub_resource type="Animation" id=3]
+length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -74,6 +77,18 @@ tracks/4/keys = {
 } ],
 "times": PoolRealArray( 2 )
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("../RestartLbl:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 6, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="GameOver" type="Control"]
 pause_mode = 2
@@ -86,7 +101,7 @@ __meta__ = {
 
 [node name="BackGround" type="TextureRect" parent="."]
 visible = false
-modulate = Color( 0, 0, 0, 0.666667 )
+modulate = Color( 0, 0, 0, 0.555556 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -77.0
@@ -101,9 +116,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RestartLbl" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.05 )
+margin_left = 423.0
+margin_top = 335.735
+margin_right = 603.0
+margin_bottom = 363.735
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Press R To Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.166667 )
 anchor_right = 1.003
 anchor_bottom = 1.003
 margin_right = -0.0689697
@@ -117,12 +145,12 @@ margin_left = 397.0
 margin_top = 274.0
 margin_right = 629.0
 margin_bottom = 328.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "YOU DIED"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
-anims/display = SubResource( 2 )
+anims/display = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CenterContainer"]
 stream = ExtResource( 3 )

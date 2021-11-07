@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GDQ - 2021 - BGM - Death Music 1.mp3-6def52d4040a755e5c73faf1972125d3.mp3str"
+
+[deps]
+
+source_file="res://BGM/GDQ - 2021 - BGM - Death Music 1.mp3"
+dest_files=[ "res://.import/GDQ - 2021 - BGM - Death Music 1.mp3-6def52d4040a755e5c73faf1972125d3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

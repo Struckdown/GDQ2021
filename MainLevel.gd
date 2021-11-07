@@ -24,4 +24,4 @@ func _on_BGM_finished():
 
 
 func _on_Dodo_died():
-	$CanvasLayer/GameOver.startGameOver()
+	$Other/GameOver.startGameOver()

@@ -57,5 +57,5 @@ func _on_ExplosionTimer_timeout():
 	queue_free()
 
 
-func _on_TimeoutAnimPlayer_animation_finished(anim_name):
+func _on_TimeoutAnimPlayer_animation_finished(_anim_name):
 	explode()

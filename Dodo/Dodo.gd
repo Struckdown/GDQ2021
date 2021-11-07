@@ -72,7 +72,7 @@ func applyMovement(delta):
 		velocity[1] = clamp(velocity[1] + gravity, -1000, 2000)
 		if onFloor:
 			velocity[1] = clamp(velocity[1], -1000, 1)
-	var collisions = move_and_slide(velocity, Vector2(0, -1))
+	var _collisions = move_and_slide(velocity, Vector2(0, -1))
 	
 	onFloor = is_on_floor()
 	if onFloor:

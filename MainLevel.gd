@@ -6,7 +6,9 @@ var playingSong = "intro"
 func _ready():
 	CameraManager.cameraRef = $Dodo/Camera2D
 	BGM.requestSong("res://BGM/GDQ - 2021 - BGM Phase 1 - Intro.mp3")
-	BGM.connect("finished", self, "_on_BGM_finished")
+	var err = BGM.connect("finished", self, "_on_BGM_finished")
+	if err:
+		print("Error:", err)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

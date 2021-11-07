@@ -41,6 +41,11 @@ animations = [ {
 "speed": 4.0
 } ]
 
+[sub_resource type="DynamicFont" id=9]
+extra_spacing_top = 30
+extra_spacing_bottom = 29
+font_data = ExtResource( 9 )
+
 [sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 37, 19 )
@@ -52,11 +57,6 @@ region_rect = Rect2( 0, 0, 37, 19 )
 [sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 37, 19 )
-
-[sub_resource type="DynamicFont" id=9]
-extra_spacing_top = 30
-extra_spacing_bottom = 29
-font_data = ExtResource( 9 )
 
 [sub_resource type="Theme" id=10]
 
@@ -97,7 +97,7 @@ __meta__ = {
 position = Vector2( 515.958, 429.513 )
 scale = Vector2( 2.20263, 2.14316 )
 frames = SubResource( 5 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="GameTerrain" type="TileMap" parent="."]
@@ -130,10 +130,10 @@ __meta__ = {
 margin_right = 193.0
 margin_bottom = 95.0
 grow_horizontal = 2
+custom_fonts/font = SubResource( 9 )
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 9 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -144,10 +144,10 @@ margin_top = 99.0
 margin_right = 193.0
 margin_bottom = 194.0
 grow_horizontal = 2
+custom_fonts/font = SubResource( 9 )
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 9 )
 text = "Controls"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -158,10 +158,10 @@ margin_top = 198.0
 margin_right = 193.0
 margin_bottom = 293.0
 grow_horizontal = 2
+custom_fonts/font = SubResource( 9 )
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 9 )
 text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -172,10 +172,10 @@ margin_top = 297.0
 margin_right = 193.0
 margin_bottom = 392.0
 grow_horizontal = 2
+custom_fonts/font = SubResource( 9 )
 custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
-custom_fonts/font = SubResource( 9 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false

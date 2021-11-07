@@ -17,6 +17,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		$ControllerConatiner.hide()
+		$MenuButtons.show()
 
 func _on_PlayButton_pressed():
 	SceneTransition.transitionTo("res://MainLevel.tscn")
@@ -26,7 +27,9 @@ func _on_QuitButton_pressed():
 
 func _on_ControlsButton_pressed():
 	$ControllerConatiner.show()
+	$MenuButtons.hide()
 
 func _on_BackButton_pressed():
 	$ControllerConatiner.hide()
+	$MenuButtons.show()
 

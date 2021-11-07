@@ -147,3 +147,4 @@ position = Vector2( 2.11896, 0 )
 navpoly = SubResource( 2 )
 
 [connection signal="died" from="Dodo" to="." method="_on_Dodo_died"]
+[connection signal="gameOver" from="Other/GameOver" to="." method="_on_GameOver_gameOver"]

@@ -28,3 +28,7 @@ func _on_BGM_finished():
 
 func _on_Dodo_died():
 	$Other/GameOver.startGameOver()
+
+
+func _on_GameOver_gameOver():
+	$"Other/Pause/Pause/Pause Menu".pausingAllowed = false

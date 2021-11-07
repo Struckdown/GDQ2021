@@ -15,7 +15,6 @@ func _ready():
 #	pass
 
 func startRainingBombs(multiplier=1):
-	print("raining starting")
 	for _i in range(20*multiplier):
 		var b = bomb.instance()
 		b.rotation_degrees = 90	# face downwards

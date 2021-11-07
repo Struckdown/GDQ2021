@@ -18,7 +18,7 @@ func _process(delta):
 
 func move(delta):
 	var desiredRotation = rotation_degrees
-	if target:
+	if is_instance_valid(target):
 		desiredRotation = rad2deg(get_angle_to(target.global_position))
 	rotation_degrees += sign(desiredRotation) * min(abs(desiredRotation), turnRate)
 

@@ -22,6 +22,7 @@ func startGameOver():
 
 func restart():
 	get_tree().paused = false
-	queue_free()
+#	queue_free()
+	SceneTransition.transitionTo("res://MainLevel.tscn")
 #	get_tree().change_scene_to(load(get_tree().get_current_scene().get_name()))
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()

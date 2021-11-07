@@ -13,7 +13,7 @@ var prefix = "Timer: "
 func _ready():
 	start_time = OS.get_ticks_msec()
 
-func _process(delta):
+func _process(_delta):
 	if (not is_paused):
 		var time = (OS.get_ticks_msec() - start_time) / 10
 		timer_value = time
@@ -33,3 +33,7 @@ func reset():
 	start_time = OS.get_ticks_msec()
 	# we can change this later
 	is_paused = false
+
+
+func _on_Shoot_timeout():
+	pass # Replace with function body.

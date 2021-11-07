@@ -37,6 +37,7 @@ script = ExtResource( 6 )
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2059.1, 11.3137 )
 scale = Vector2( 2, 2 )
 healthRef = NodePath("../Other/Health")
 

@@ -38,7 +38,7 @@ __meta__ = {
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_top = 42.0
 margin_right = 1024.0
-margin_bottom = 99.0
+margin_bottom = 100.0
 size_flags_vertical = 3
 value = 100.0
 texture_under = ExtResource( 5 )

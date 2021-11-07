@@ -3,6 +3,7 @@ extends KinematicBody2D
 export(float) var MAX_THRUST = 50
 export(int) var MAX_SPEED = 350
 var vel = Vector2()
+var explosionParticle = preload("res://Mechs/ExplosionParticle.tscn")
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -58,3 +59,16 @@ func cal(delta):
 func _physics_process(delta):
 	cal(delta)
 	vel = move_and_slide(vel)
+
+
+func _on_Auto_Die_timeout():
+	$TimeoutAnimPlayer.play("Timeout")
+
+
+func _on_Die_timeout():
+	# explosion
+	var e = explosionParticle.instance()
+	get_viewport().add_child(e)
+	e.global_position = global_position
+	hide()
+	queue_free()

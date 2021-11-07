@@ -98,30 +98,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Other/ParallaxBackground"]
-motion_scale = Vector2( 0.15, 0 )
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Other/ParallaxBackground"]
+motion_scale = Vector2( 0.15, 0.15 )
 
-[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer2"]
-modulate = Color( 0.694118, 0.694118, 0.694118, 1 )
-margin_left = -1362.47
-margin_top = -29.8132
-margin_right = 2986.53
-margin_bottom = 170.187
-rect_scale = Vector2( 2, 2 )
+[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer"]
+modulate = Color( 0.580392, 0.580392, 0.580392, 1 )
+margin_left = -1262.88
+margin_top = -31.932
+margin_right = 3086.12
+margin_bottom = 168.068
 texture = ExtResource( 13 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Other/ParallaxBackground"]
-motion_scale = Vector2( 0.25, 0 )
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Other/ParallaxBackground"]
+motion_scale = Vector2( 0.25, 0.25 )
 
-[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer"]
-margin_left = -1265.0
-margin_top = 167.247
-margin_right = 3084.0
-margin_bottom = 367.247
+[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer2"]
+margin_left = -1366.71
+margin_top = 25.2789
+margin_right = 2982.29
+margin_bottom = 225.279
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 13 )
 stretch_mode = 2
 __meta__ = {
@@ -140,6 +140,7 @@ bombsManager = NodePath("../RainingBombsManager")
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 2.11896, 0 )
 navpoly = SubResource( 2 )
 
 [connection signal="died" from="Dodo" to="." method="_on_Dodo_died"]

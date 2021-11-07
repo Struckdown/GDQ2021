@@ -97,6 +97,7 @@ __meta__ = {
 position = Vector2( 515.958, 429.513 )
 scale = Vector2( 2.20263, 2.14316 )
 frames = SubResource( 5 )
+frame = 2
 playing = true
 
 [node name="GameTerrain" type="TileMap" parent="."]

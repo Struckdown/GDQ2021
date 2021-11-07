@@ -4,11 +4,28 @@
 [ext_resource path="res://Projectiles/Missile.gd" type="Script" id=2]
 [ext_resource path="res://SFX/Explosion 1.mp3" type="AudioStream" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.163636 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 0.5
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 15.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 300.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 2 )
+color = Color( 0.768627, 0.623529, 0.0588235, 1 )
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16.1805, 4.66387 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "fly"
+[sub_resource type="Animation" id=5]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -24,8 +41,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Timeout"
+[sub_resource type="Animation" id=6]
 length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:modulate")
@@ -40,24 +56,6 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.847059, 0.756863, 0.160784, 1 ), Color( 1, 1, 1, 1 ), Color( 0.847059, 0.756863, 0.160784, 1 ), Color( 1, 1, 1, 1 ), Color( 0.847059, 0.756863, 0.160784, 1 ), Color( 1, 1, 1, 1 ), Color( 0.847059, 0.756863, 0.160784, 1 ), Color( 1, 1, 1, 1 ), Color( 0.847059, 0.756863, 0.160784, 1 ), Color( 1, 1, 1, 1 ), Color( 0.847059, 0.756863, 0.160784, 1 ), Color( 1, 1, 1, 1 ), Color( 0.847059, 0.756863, 0.160784, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Curve" id=4]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.163636 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
-
-[sub_resource type="ParticlesMaterial" id=6]
-lifetime_randomness = 0.5
-flag_disable_z = true
-direction = Vector3( -1, 0, 0 )
-spread = 15.0
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 300.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale_curve = SubResource( 5 )
-color = Color( 0.768627, 0.623529, 0.0588235, 1 )
-
 [node name="Missile" type="Node2D"]
 scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
@@ -67,10 +65,15 @@ texture = ExtResource( 1 )
 flip_h = true
 vframes = 3
 
+[node name="Particles2D" type="Particles2D" parent="Sprite"]
+position = Vector2( -10.6388, 0 )
+lifetime = 0.2
+process_material = SubResource( 3 )
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="Lifetime" type="Timer" parent="."]
 wait_time = 7.0
@@ -85,15 +88,10 @@ wait_time = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fly"
-anims/fly = SubResource( 2 )
+anims/fly = SubResource( 5 )
 
 [node name="TimeoutAnimPlayer" type="AnimationPlayer" parent="."]
-anims/Timeout = SubResource( 3 )
-
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( -10.6388, 0 )
-lifetime = 0.2
-process_material = SubResource( 6 )
+anims/Timeout = SubResource( 6 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]

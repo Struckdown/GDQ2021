@@ -38,6 +38,7 @@ scale = Vector2( 0.351153, 0.221915 )
 texture = ExtResource( 1 )
 flip_h = true
 hframes = 6
+frame = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 

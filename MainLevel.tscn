@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environment/Terrain.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mechs/BossHp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Projectiles/RainingBombsManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MainLevel.gd" type="Script" id=6]
 [ext_resource path="res://WorkingPauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mechs/KillerDutchMech.tscn" type="PackedScene" id=9]
@@ -30,12 +31,15 @@ vertices = PoolVector2Array( -1803.52, -810.13, 1942.75, -940.297, 1780.84, 494.
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( -1803.52, -810.13, 1942.75, -940.297, 1780.84, 494.714, -1787.64, 339.148 ) ]
 
-[node name="MainLevel3" type="Node2D"]
+[node name="MainLevel" type="Node2D" groups=[
+"Level",
+]]
 script = ExtResource( 6 )
 
 [node name="Terrain" parent="." instance=ExtResource( 3 )]
 
 [node name="Dodo" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2059.1, 11.3137 )
 scale = Vector2( 2, 2 )
 healthRef = NodePath("../Other/Health")
 
@@ -97,30 +101,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Other/ParallaxBackground"]
-motion_scale = Vector2( 0.15, 0 )
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Other/ParallaxBackground"]
+motion_scale = Vector2( 0.15, 0.15 )
 
-[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer2"]
-modulate = Color( 0.694118, 0.694118, 0.694118, 1 )
-margin_left = -1362.47
-margin_top = -29.8132
-margin_right = 2986.53
-margin_bottom = 170.187
-rect_scale = Vector2( 2, 2 )
+[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer"]
+modulate = Color( 0.580392, 0.580392, 0.580392, 1 )
+margin_left = -1262.88
+margin_top = -31.932
+margin_right = 3086.12
+margin_bottom = 168.068
 texture = ExtResource( 13 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Other/ParallaxBackground"]
-motion_scale = Vector2( 0.25, 0 )
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Other/ParallaxBackground"]
+motion_scale = Vector2( 0.25, 0.25 )
 
-[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer"]
-margin_left = -1265.0
-margin_top = 167.247
-margin_right = 3084.0
-margin_bottom = 367.247
+[node name="Mountains" type="TextureRect" parent="Other/ParallaxBackground/ParallaxLayer2"]
+margin_left = -1366.71
+margin_top = 25.2789
+margin_right = 2982.29
+margin_bottom = 225.279
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 13 )
 stretch_mode = 2
 __meta__ = {
@@ -132,10 +136,15 @@ position = Vector2( 1132.71, -366.651 )
 z_index = -1
 bossHPRef = NodePath("../Boss/BossHp")
 navigation2D = NodePath("../Navigation2D")
+bombsManager = NodePath("../RainingBombsManager")
+
+[node name="RainingBombsManager" parent="." instance=ExtResource( 5 )]
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 2.11896, 0 )
 navpoly = SubResource( 2 )
 
 [connection signal="died" from="Dodo" to="." method="_on_Dodo_died"]
+[connection signal="gameOver" from="Other/GameOver" to="." method="_on_GameOver_gameOver"]

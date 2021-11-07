@@ -154,3 +154,7 @@ anims/display = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CenterContainer"]
 stream = ExtResource( 5 )
+
+[node name="DelayTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DelayTimer" to="." method="_on_DelayTimer_timeout"]

@@ -36,16 +36,16 @@ points = PoolVector2Array( 0, 0, 20, 0, 0, 20 )
 points = PoolVector2Array( 20, 10, 10, 10, 10, 0, 20, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 20, 20, 10, 20, 0, 10 )
+points = PoolVector2Array( 10, 0, 10, 0, 10, 0, 20, 0, 20, 10, 10, 10 )
 
-[sub_resource type="ConvexPolygonShape2D" id=13]
-points = PoolVector2Array( 20, 0, 20, 10, 10, 20, 0, 20 )
+[sub_resource type="ConvexPolygonShape2D" id=48]
+points = PoolVector2Array( 0, 0, 20, 20, 10, 20, 0, 10 )
 
-[sub_resource type="ConvexPolygonShape2D" id=14]
-points = PoolVector2Array( 10, 10, 0, 10, 0, 0, 10, 0 )
+[sub_resource type="ConvexPolygonShape2D" id=49]
+points = PoolVector2Array( 0, 20, 0, 20, 20, 0, 20, 10, 10, 20 )
 
 [sub_resource type="ConvexPolygonShape2D" id=15]
-points = PoolVector2Array( 0, 0, 0, 0, 20, 0, 20, 10, 0, 10 )
+points = PoolVector2Array( 0, 0, 0, 0, 10, 0, 10, 10, 0, 10 )
 
 [sub_resource type="ConvexPolygonShape2D" id=16]
 points = PoolVector2Array( 20, 10, 0, 10, 0, 0, 20, 0 )
@@ -54,7 +54,7 @@ points = PoolVector2Array( 20, 10, 0, 10, 0, 0, 20, 0 )
 points = PoolVector2Array( 20, 10, 0, 10, 0, 0, 20, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
-points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
+points = PoolVector2Array( 20, 10, 0, 10, 0, 0, 20, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=19]
 points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
@@ -141,7 +141,7 @@ points = PoolVector2Array( 20, 10, 0, 10, 0, 0, 20, 0 )
 points = PoolVector2Array( 20, 10, 0, 10, 0, 0, 20, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
-points = PoolVector2Array( 20, 10, 0, 10, 0, 0, 20, 0 )
+points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 
 [resource]
 0/name = "spr_tiles9x23.png 0"
@@ -851,34 +851,6 @@ points = PoolVector2Array( 20, 10, 0, 10, 0, 0, 20, 0 )
 46/shape_one_way_margin = 0.0
 46/shapes = [  ]
 46/z_index = 0
-47/name = "spr_tiles9x23.png 47"
-47/texture = ExtResource( 1 )
-47/tex_offset = Vector2( 0, 0 )
-47/modulate = Color( 1, 1, 1, 1 )
-47/region = Rect2( 40, 140, 20, 20 )
-47/tile_mode = 0
-47/occluder_offset = Vector2( 0, 0 )
-47/navigation_offset = Vector2( 0, 0 )
-47/shape_offset = Vector2( 0, 0 )
-47/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-47/shape_one_way = false
-47/shape_one_way_margin = 0.0
-47/shapes = [  ]
-47/z_index = 0
-48/name = "spr_tiles9x23.png 48"
-48/texture = ExtResource( 1 )
-48/tex_offset = Vector2( 0, 0 )
-48/modulate = Color( 1, 1, 1, 1 )
-48/region = Rect2( 40, 160, 20, 20 )
-48/tile_mode = 0
-48/occluder_offset = Vector2( 0, 0 )
-48/navigation_offset = Vector2( 0, 0 )
-48/shape_offset = Vector2( 0, 0 )
-48/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-48/shape_one_way = false
-48/shape_one_way_margin = 0.0
-48/shapes = [  ]
-48/z_index = 0
 49/name = "spr_tiles9x23.png 49"
 49/texture = ExtResource( 1 )
 49/tex_offset = Vector2( 0, 0 )
@@ -1246,14 +1218,14 @@ points = PoolVector2Array( 20, 10, 0, 10, 0, 0, 20, 0 )
 113/navigation_offset = Vector2( 0, 0 )
 113/shape_offset = Vector2( 0, 0 )
 113/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-113/shape = SubResource( 13 )
+113/shape = SubResource( 48 )
 113/shape_one_way = false
 113/shape_one_way_margin = 1.0
 113/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 13 ),
+"shape": SubResource( 48 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 113/z_index = 0
@@ -1267,14 +1239,14 @@ points = PoolVector2Array( 20, 10, 0, 10, 0, 0, 20, 0 )
 114/navigation_offset = Vector2( 0, 0 )
 114/shape_offset = Vector2( 0, 0 )
 114/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-114/shape = SubResource( 14 )
+114/shape = SubResource( 49 )
 114/shape_one_way = false
 114/shape_one_way_margin = 1.0
 114/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 14 ),
+"shape": SubResource( 49 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 114/z_index = 0

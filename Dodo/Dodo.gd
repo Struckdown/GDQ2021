@@ -106,8 +106,10 @@ func takeDamage():
 	if health <= 0:
 		playerHasControl = false
 		emit_signal("died")
-	else:
 		$HurtSFX.stream = load("res://SFX/Dodo Dead Noise 1.mp3")
+		$Sprite.texture = load("res://art/spr_realturkey.png")
+		$Sprite.hframes = 1
+		$Sprite.scale = Vector2(0.5, 0.5)
 	$HurtSFX.play()
 
 func _on_InvulnerabilityPlayer_animation_finished(_anim_name):

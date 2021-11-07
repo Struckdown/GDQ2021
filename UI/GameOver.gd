@@ -1,6 +1,7 @@
 extends Control
 
 var played = false
+signal gameOver
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,10 +17,16 @@ func _input(event):
 
 func startGameOver():
 	if not played:
+		emit_signal("gameOver")
 		played = true
-		get_tree().paused = true
-		$CenterContainer/AnimationPlayer.play("display")
+		$DelayTimer.start()
+
 		
 func restart():
 	get_tree().paused = false
 	SceneTransition.transitionTo("res://MainLevel.tscn")
+
+
+func _on_DelayTimer_timeout():
+	get_tree().paused = true
+	$CenterContainer/AnimationPlayer.play("display")

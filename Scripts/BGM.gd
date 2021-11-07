@@ -42,3 +42,7 @@ func fadeIn():
 func switchTracks():
 		stream = load(curSong)
 		play()
+
+
+func _on_BGM_finished():
+	play()

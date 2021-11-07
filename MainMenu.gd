@@ -38,3 +38,7 @@ func _on_Button_focus_entered():
 
 func _on_Button_mouse_entered():
 	$HoverSFX.play()
+
+
+func _on_Credits_pressed():
+		SceneTransition.transitionTo("res://Credits.tscn")

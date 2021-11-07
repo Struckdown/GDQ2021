@@ -15,6 +15,8 @@ func _ready():
 #	pass
 
 func requestSong(track, _fadeOutTime=1, _fadeInTime=0.7):
+	if curSong == track:
+		return
 	curSong = track
 	fadeOutTime = _fadeOutTime
 	fadeInTime = _fadeInTime

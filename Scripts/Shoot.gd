@@ -1,7 +1,7 @@
 extends Sprite
 
 
-var missile = preload("res://Projectiles/Missile.tscn")
+var missile = preload("res://Projectiles/Laser.tscn")
 export(float) var max_distance = 500
 
 

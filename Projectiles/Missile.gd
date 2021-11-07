@@ -4,11 +4,14 @@ export(float) var speed = 300
 export(float) var turnRate = 3
 var target
 var dying = false
+export(bool) var shouldTrack = true
 var explosionParticle = preload("res://Mechs/ExplosionParticle.tscn")
+export(bool) var explodes = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	target = get_tree().get_nodes_in_group("missileTrackable")[0]
+	if shouldTrack:
+		target = get_tree().get_nodes_in_group("missileTrackable")[0]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,19 +42,23 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Lifetime_timeout():
-	$TimeoutAnimPlayer.play("Timeout")
+	if has_node("TimeoutAnimPlayer"):
+		$TimeoutAnimPlayer.play("Timeout")
+	else:
+		explode()
 
 func explode():
 	if not dying:
 		dying = true
-		$AudioStreamPlayer.play()
-		$ExplosionTimer.start()
-		$Area2D/CollisionShape2D.set_deferred("disabled", true)
+		if explodes:
+			$AudioStreamPlayer.play()
+			$ExplosionTimer.start()
+			$Area2D/CollisionShape2D.set_deferred("disabled", true)
+			var e = explosionParticle.instance()
+			e.global_position = global_position
+			get_viewport().add_child(e)
 		$Sprite.hide()
-		var e = explosionParticle.instance()
-		get_viewport().add_child(e)
-		e.global_position = global_position
-
+		
 
 func _on_ExplosionTimer_timeout():
 	queue_free()

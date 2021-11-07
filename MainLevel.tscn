@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Dodo/Dodo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://health.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environment/Terrain.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mechs/BossHp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Projectiles/RainingBombsManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MainLevel.gd" type="Script" id=6]
 [ext_resource path="res://WorkingPauseMenu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mechs/KillerDutchMech.tscn" type="PackedScene" id=9]
@@ -132,6 +133,9 @@ position = Vector2( 1132.71, -366.651 )
 z_index = -1
 bossHPRef = NodePath("../Boss/BossHp")
 navigation2D = NodePath("../Navigation2D")
+bombsManager = NodePath("../RainingBombsManager")
+
+[node name="RainingBombsManager" parent="." instance=ExtResource( 5 )]
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 

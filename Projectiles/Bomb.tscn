@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://art/spr_missile2.png" type="Texture" id=1]
 [ext_resource path="res://Projectiles/Bomb.gd" type="Script" id=2]
 [ext_resource path="res://SFX/Missile Launch 1.mp3" type="AudioStream" id=3]
 
-[node name="FakeBomb" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.2669, 14.0071 )
+
+[node name="Bomb" type="Node2D"]
 scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
-hurtsPlayer = false
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -24,5 +26,11 @@ max_distance = 3000.0
 [node name="ExplosionTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
 [connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
 [connection signal="timeout" from="ExplosionTimer" to="." method="_on_ExplosionTimer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

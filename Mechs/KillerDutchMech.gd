@@ -11,6 +11,7 @@ var dodo
 export(Array, NodePath) var missileLaunchers
 var invulnerable = false
 export(NodePath) onready var navigation2D = get_node(navigation2D)
+export(NodePath) onready var bombsManager = get_node(bombsManager)
 var dest = Vector2.ZERO
 var bossAggressionMultiplier = 1
 var explosionParticles = preload("res://Mechs/ExplosionParticle.tscn")
@@ -122,3 +123,6 @@ func _on_PhaseTimer_timeout():
 		"bombs":
 			state = "missiles"
 
+
+func activeBombManager():
+	bombsManager.startRainingBombs(bossAggressionMultiplier)

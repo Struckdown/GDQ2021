@@ -62,6 +62,20 @@ scale_random = 1.0
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true ]
+}
+
 [sub_resource type="Animation" id=15]
 resource_name = "FireBombsUpwards"
 length = 5.0
@@ -168,8 +182,8 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 2.9, 3.1, 3.3, 3.5, 3.7, 3.9, 4.1, 4.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 2.9, 3.1, 3.3, 3.5, 3.7, 3.9, 4.1, 4.3, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ true ],
 "method": "fireBombs"
@@ -218,6 +232,9 @@ tracks/8/keys = {
 }, {
 "args": [ false ],
 "method": "fireBombs"
+}, {
+"args": [  ],
+"method": "activeBombManager"
 } ]
 }
 
@@ -693,20 +710,6 @@ tracks/25/keys = {
 "values": [ ExtResource( 6 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true, false, true, false, true, false, true, false, true ]
-}
-
 [sub_resource type="AnimationNodeAnimation" id=16]
 animation = "FireBombsUpwards"
 
@@ -780,7 +783,7 @@ polygon = PoolVector2Array( -1.21788, -68.4254, 72.719, -58.6721, 96.0012, -42.9
 
 [node name="UpperArmL" type="Sprite" parent="."]
 position = Vector2( -116.179, -88.1709 )
-rotation = -0.0111242
+rotation = 0.0662276
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -792,7 +795,7 @@ __meta__ = {
 
 [node name="ArmL" type="Sprite" parent="UpperArmL"]
 position = Vector2( -0.748195, 137.689 )
-rotation = -7.17373
+rotation = -7.36379
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -802,7 +805,7 @@ __meta__ = {
 
 [node name="HandL" type="Sprite" parent="UpperArmL/ArmL"]
 position = Vector2( 0.587658, -138.431 )
-rotation = 0.688884
+rotation = 0.802323
 texture = ExtResource( 6 )
 offset = Vector2( 2.26794, -65.4607 )
 hframes = 2
@@ -837,7 +840,7 @@ texture = ExtResource( 7 )
 
 [node name="UpperArmR" type="Sprite" parent="."]
 position = Vector2( 109.81, -88.1709 )
-rotation = 0.0350362
+rotation = 0.00918715
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -848,7 +851,7 @@ __meta__ = {
 
 [node name="ArmR" type="Sprite" parent="UpperArmR"]
 position = Vector2( -0.748195, 137.689 )
-rotation = 0.988976
+rotation = 1.11581
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -859,7 +862,7 @@ __meta__ = {
 
 [node name="HandR" type="Sprite" parent="UpperArmR/ArmR"]
 position = Vector2( 2.1962, -144.387 )
-rotation = -0.578943
+rotation = -0.679194
 texture = ExtResource( 6 )
 offset = Vector2( -5.76402, -58.4693 )
 hframes = 2
@@ -894,12 +897,6 @@ explosiveness = 1.0
 process_material = SubResource( 5 )
 texture = ExtResource( 7 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/FireBombsUpwards = SubResource( 15 )
-anims/FireMissile = SubResource( 24 )
-anims/batLHand = SubResource( 6 )
-anims/rest = SubResource( 7 )
-
 [node name="MissileLauncherTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
@@ -913,6 +910,12 @@ volume_db = 5.0
 attenuation = 0.378929
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FireBombsUpwards = SubResource( 15 )
+anims/FireMissile = SubResource( 24 )
+anims/batLHand = SubResource( 6 )
+anims/rest = SubResource( 7 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 13 )

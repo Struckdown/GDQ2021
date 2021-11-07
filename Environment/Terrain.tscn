@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Environment/MainLevel.tres" type="TileSet" id=1]
 [ext_resource path="res://Environment/Doodads.tres" type="TileSet" id=2]
+[ext_resource path="res://BonusDoodads/CameraDoodad.tscn" type="PackedScene" id=3]
 
 [node name="Terrain" type="Node2D"]
 
@@ -36,3 +37,6 @@ tile_data = PoolIntArray( -2162672, 75, 0, -2097138, 85, 0, -2097136, 57, 0, -19
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="CameraDoodad" parent="." instance=ExtResource( 3 )]
+position = Vector2( 393.79, -204.941 )

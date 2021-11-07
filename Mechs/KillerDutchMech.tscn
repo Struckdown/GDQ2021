@@ -427,7 +427,7 @@ polygon = PoolVector2Array( -1.21788, -68.4254, 72.719, -58.6721, 96.0012, -42.9
 
 [node name="UpperArmL" type="Sprite" parent="."]
 position = Vector2( -116.179, -88.1709 )
-rotation = 0.00604719
+rotation = 0.0405669
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -439,7 +439,7 @@ __meta__ = {
 
 [node name="ArmL" type="Sprite" parent="UpperArmL"]
 position = Vector2( -0.748195, 137.689 )
-rotation = -7.21593
+rotation = -7.30075
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -449,7 +449,7 @@ __meta__ = {
 
 [node name="HandL" type="Sprite" parent="UpperArmL/ArmL"]
 position = Vector2( 0.587658, -138.431 )
-rotation = 0.714066
+rotation = 0.76469
 texture = ExtResource( 6 )
 offset = Vector2( 2.26794, -65.4607 )
 hframes = 2
@@ -471,7 +471,7 @@ texture = ExtResource( 7 )
 
 [node name="UpperArmR" type="Sprite" parent="."]
 position = Vector2( 109.81, -88.1709 )
-rotation = 0.0292979
+rotation = 0.0177623
 texture = ExtResource( 1 )
 offset = Vector2( 0.826675, 70.6227 )
 hframes = 2
@@ -482,7 +482,7 @@ __meta__ = {
 
 [node name="ArmR" type="Sprite" parent="UpperArmR"]
 position = Vector2( -0.748195, 137.689 )
-rotation = 1.01713
+rotation = 1.07373
 texture = ExtResource( 1 )
 offset = Vector2( -0.421516, -69.7946 )
 hframes = 2
@@ -493,7 +493,7 @@ __meta__ = {
 
 [node name="HandR" type="Sprite" parent="UpperArmR/ArmR"]
 position = Vector2( 2.1962, -144.387 )
-rotation = -0.601198
+rotation = -0.645937
 texture = ExtResource( 6 )
 offset = Vector2( -5.76402, -58.4693 )
 hframes = 2

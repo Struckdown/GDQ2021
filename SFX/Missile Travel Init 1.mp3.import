@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Missile Travel Init 1.mp3-5e7fc67097721a435f3dea673d861571.mp3str"
+
+[deps]
+
+source_file="res://SFX/Missile Travel Init 1.mp3"
+dest_files=[ "res://.import/Missile Travel Init 1.mp3-5e7fc67097721a435f3dea673d861571.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

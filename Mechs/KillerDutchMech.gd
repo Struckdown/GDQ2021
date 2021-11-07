@@ -10,6 +10,7 @@ export(Array, NodePath) var missileLaunchers
 var invulnerable = false
 #var state_machine = $AnimationTree["parameters/playback"]
 var bossAggressionMultiplier = 1
+var explosionParticles = preload("res://Mechs/ExplosionParticle.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,6 +56,8 @@ func takeDamage():
 	$HitSFX.play()
 	if health <= 2:
 		$Head.texture = load("res://art/spr_headangry.png")
+	if health <= 0:
+		die()
 
 
 func getClosestLauncherToDodo():
@@ -72,6 +75,17 @@ func getClosestLauncherToDodo():
 				closest = child
 	return closest
 
+func die():
+	for i in range(15):
+		var e = explosionParticles.instance()
+		get_viewport().add_child(e)
+		var r = 500 * sqrt(randf())
+		var theta = randf() * 2 * PI
+		var pos = Vector2(global_position.x + r*cos(theta), global_position.y + r*sin(theta))
+		e.global_position = pos
+		e.emitting = true
+		e.get_child(0).emitting = true
+		yield(get_tree().create_timer(0.05), "timeout")
 
 func _on_InvulnerableAnimationPlayer_animation_finished(anim_name):
 	invulnerable = false

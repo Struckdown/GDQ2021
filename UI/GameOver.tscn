@@ -22,7 +22,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.6 ),
+"times": PoolRealArray( 0.1, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -58,7 +58,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1 ),
+"times": PoolRealArray( 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -84,10 +84,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 6, 8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.1, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="GameOver" type="Control"]
@@ -101,7 +101,7 @@ __meta__ = {
 
 [node name="BackGround" type="TextureRect" parent="."]
 visible = false
-modulate = Color( 0, 0, 0, 0.555556 )
+modulate = Color( 0, 0, 0, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -77.0
@@ -117,7 +117,7 @@ __meta__ = {
 }
 
 [node name="RestartLbl" type="Label" parent="."]
-modulate = Color( 1, 1, 1, 0.05 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 423.0
 margin_top = 335.735
 margin_right = 603.0
@@ -131,7 +131,7 @@ __meta__ = {
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0.166667 )
+modulate = Color( 1, 1, 1, 0.458333 )
 anchor_right = 1.003
 anchor_bottom = 1.003
 margin_right = -0.0689697

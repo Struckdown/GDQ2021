@@ -15,62 +15,66 @@
 [ext_resource path="res://art/spr_flagwithpole.png" type="Texture" id=13]
 [ext_resource path="res://Environment/Doodads.tres" type="TileSet" id=14]
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 0, 0, 37, 53 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 37, 0, 37, 53 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 74, 0, 37, 53 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 111, 0, 37, 53 )
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 4.0
 } ]
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 37, 19 )
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 37, 19 )
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 37, 19 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=9]
 extra_spacing_top = 30
 extra_spacing_bottom = 29
 font_data = ExtResource( 9 )
 
-[sub_resource type="Theme" id=5]
+[sub_resource type="Theme" id=10]
 
-[sub_resource type="StyleBoxTexture" id=6]
+[sub_resource type="StyleBoxTexture" id=11]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 160, 20 )
 
-[sub_resource type="StyleBoxTexture" id=7]
+[sub_resource type="StyleBoxTexture" id=12]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 160, 20 )
 
-[sub_resource type="StyleBoxTexture" id=8]
+[sub_resource type="StyleBoxTexture" id=13]
 texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 160, 20 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=14]
 emission_shape = 2
 emission_box_extents = Vector3( 900, 200, 1 )
 flag_disable_z = true
@@ -94,7 +98,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 515.958, 429.513 )
 scale = Vector2( 2.20263, 2.14316 )
-frames = SubResource( 14 )
+frames = SubResource( 5 )
 frame = 2
 playing = true
 
@@ -128,10 +132,10 @@ __meta__ = {
 margin_right = 193.0
 margin_bottom = 95.0
 grow_horizontal = 2
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -142,10 +146,10 @@ margin_top = 99.0
 margin_right = 193.0
 margin_bottom = 194.0
 grow_horizontal = 2
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "Controls"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -156,10 +160,10 @@ margin_top = 198.0
 margin_right = 193.0
 margin_bottom = 293.0
 grow_horizontal = 2
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -192,10 +196,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 2.09106
 margin_bottom = 114.091
-theme = SubResource( 5 )
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
+theme = SubResource( 10 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -232,7 +236,7 @@ lifetime = 7.0
 preprocess = 2.0
 visibility_rect = Rect2( -2000, -2000, 4000, 4000 )
 local_coords = false
-process_material = SubResource( 9 )
+process_material = SubResource( 14 )
 
 [connection signal="pressed" from="MenuButtons/Play" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MenuButtons/Controls" to="." method="_on_ControlsButton_pressed"]

@@ -25,12 +25,20 @@ func _on_MissileLauncherTimer_timeout():
 	fireMissile()
 
 func fireMissile():
+	var l = getClosestLauncherToDodo()
+	$UpperArmL/ArmL/HandL.texture = load("res://art/spr_handspoint.png")
+	$UpperArmR/ArmR/HandR.texture = load("res://art/spr_handspoint.png")
+	yield(get_tree().create_timer(1), "timeout")
 	var m = missile.instance()
 	get_viewport().add_child(m)
 	m.speed *= bossAggressionMultiplier
-	var l = getClosestLauncherToDodo()
 	m.global_position = l.global_position
 	m.global_rotation = l.global_rotation
+	l.get_child(0).emitting = true
+	yield(get_tree().create_timer(0.4), "timeout")
+	$UpperArmL/ArmL/HandL.texture = load("res://art/spr_hands.png")
+	$UpperArmR/ArmR/HandR.texture = load("res://art/spr_hands.png")
+
 
 func takeDamage():
 	if invulnerable:
@@ -44,7 +52,9 @@ func takeDamage():
 	var i = health + 1
 	$HitSFX.stream = load("res://SFX/Angry Robot " + str(i) + ".mp3")
 	$HitSFX.play()
-	print("Mech has taken damage!")
+	if health <= 2:
+		$Head.texture = load("res://art/spr_headangry.png")
+
 
 func getClosestLauncherToDodo():
 	var closest = null

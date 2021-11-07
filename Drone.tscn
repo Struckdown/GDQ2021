@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://art/spr_drone.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/drone.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Shoot.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.938, 32.311 )
+extents = Vector2( 26.8983, 26.0114 )
 
 [node name="Drone" type="KinematicBody2D"]
 light_mask = 9
@@ -18,8 +18,11 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 0.185286 )
+scale = Vector2( 1.37057, 1.37057 )
 z_index = 4
 texture = ExtResource( 1 )
+hframes = 2
 script = ExtResource( 3 )
 
 [node name="rays" type="Node2D" parent="."]

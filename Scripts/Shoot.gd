@@ -20,11 +20,10 @@ func _exit_tree():
 	queue_free()
 
 func _on_Shoot_timeout():
-	print("Hi")
 	var m = missile.instance()
 	get_viewport().add_child(m)
 	m.speed *= 1
 	var l = self.global_position
 	m.global_position = l
-	m.global_rotation = get_angle_to(get_parent().get_parent().get_node("Dodo").global_position)
+	m.global_rotation = get_angle_to(get_parent().get_parent().get_node("Dodo").global_position) + get_parent().global_rotation
 	

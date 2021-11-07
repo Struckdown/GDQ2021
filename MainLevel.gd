@@ -8,7 +8,6 @@ func _ready():
 	BGM.requestSong("res://BGM/GDQ - 2021 - BGM Phase 1 - Intro.mp3")
 	BGM.connect("finished", self, "_on_BGM_finished")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

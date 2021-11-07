@@ -4,11 +4,13 @@ extends Node2D
 var missile = preload("res://Projectiles/Missile.tscn")
 var health
 export(int) var maxHealth = 3
+export(float) var moveSpeed = 100
 export(NodePath) onready var bossHPRef = get_node(bossHPRef)
 var dodo
 export(Array, NodePath) var missileLaunchers
 var invulnerable = false
-#var state_machine = $AnimationTree["parameters/playback"]
+export(NodePath) onready var navigation2D = get_node(navigation2D)
+var dest = Vector2.ZERO
 var bossAggressionMultiplier = 1
 var explosionParticles = preload("res://Mechs/ExplosionParticle.tscn")
 
@@ -18,9 +20,11 @@ func _ready():
 	dodo = get_tree().get_nodes_in_group("Player")[0]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	move(delta)
 
+func move(delta):
+	global_position -= (global_position-dest).normalized() * moveSpeed * delta
 
 func _on_MissileLauncherTimer_timeout():
 	fireMissile()
@@ -51,7 +55,7 @@ func takeDamage():
 	if bossHPRef:
 		bossHPRef.setHealth(float(health)/float(maxHealth))
 	bossAggressionMultiplier += .5
-	var i = health + 1
+	var i = randi()%3
 	$HitSFX.stream = load("res://SFX/Angry Robot " + str(i+1)  + ".mp3")
 	$HitSFX.play()
 	if health <= 2:
@@ -93,4 +97,10 @@ func _on_InvulnerableAnimationPlayer_animation_finished(_anim_name):
 
 func swatHand():
 	$AnimationTree.get("parameters/playback").travel("batLHand")
+
+
+
+func _on_ChaseTimer_timeout():
+	dest = navigation2D.get_closest_point(dodo.global_position)
+#		$Navigation2D.get_closest_point()
 

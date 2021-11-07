@@ -13,6 +13,7 @@
 [ext_resource path="res://UI/GameOver.tscn" type="PackedScene" id=11]
 [ext_resource path="res://art/spr_sky.png" type="Texture" id=12]
 [ext_resource path="res://art/spr_mountains.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/drone.gd" type="Script" id=14]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -26,8 +27,6 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 2.0
 scale_random = 1.0
-
-[sub_resource type="PhysicsMaterial" id=2]
 
 [node name="MainLevel2" type="Node2D"]
 script = ExtResource( 6 )
@@ -106,14 +105,9 @@ mouse_filter = 2
 stream = ExtResource( 5 )
 autoplay = true
 
-[node name="Drone" type="RigidBody2D" parent="."]
+[node name="Drone" type="Node2D" parent="."]
 light_mask = 9
-collision_layer = 9
-collision_mask = 9
-mode = 1
-mass = 5.0
-physics_material_override = SubResource( 2 )
-gravity_scale = 3.0
+script = ExtResource( 14 )
 
 [node name="Sprite" type="Sprite" parent="Drone"]
 scale = Vector2( 0.5, 0.5 )
